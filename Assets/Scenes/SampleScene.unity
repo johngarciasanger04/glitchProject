@@ -371,6 +371,7 @@ MonoBehaviour:
   maxPushMass: 200
   onlyHorizontalPush: 1
   wallDamping: 0.6
+  pauseAction: {fileID: -8058409656849746523, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
 --- !u!143 &83703588
 CharacterController:
   m_ObjectHideFlags: 0
