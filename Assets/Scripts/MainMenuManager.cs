@@ -6,7 +6,11 @@ public class MainMenuManager : MonoBehaviour
     public static MainMenuManager instance;
 
     [Header("Setup")]
-    [SerializeField] private string levelToLoad;
+    [SerializeField] private string level1ToLoad;
+    [SerializeField] private string level2ToLoad;
+    [SerializeField] private string level3ToLoad;
+    [SerializeField] private string level4ToLoad;
+    [SerializeField] private string level5ToLoad;
     [SerializeField] private bool debugging = false;
     [SerializeField] GameObject mainMenuUI;
     [SerializeField] GameObject levelsUI;
@@ -35,9 +39,9 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("Start button clicked");
         if (debugging)
-            Debug.Log("Loading level: " + levelToLoad);
+            Debug.Log("Loading level: " + level1ToLoad);
 
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(level1ToLoad);
     }
     public void OnLevelsButton()
     {
@@ -67,6 +71,14 @@ public class MainMenuManager : MonoBehaviour
         settingsUI.SetActive(false);
         mainMenuUI.SetActive(true);
         Debug.Log("Back to Main Menu from Settings clicked");
+    }
+    public void OnLevel1Button()
+    {
+        Debug.Log("Level 1 button clicked");
+        if (debugging)
+            Debug.Log("Loading level: " + level1ToLoad);
+
+        SceneManager.LoadScene(level1ToLoad);
     }
 
     private void QuitGame()
