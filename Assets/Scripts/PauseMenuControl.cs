@@ -50,7 +50,10 @@ public class PauseMenuController : MonoBehaviour
         Debug.Log("PAUSING - Physics frozen, player can still move!");
         
         // Find all rigidbodies
+
+        #pragma warning disable CS0618
         allRigidbodies = FindObjectsOfType<Rigidbody>();
+        #pragma warning restore CS0618
         savedVelocities = new Vector3[allRigidbodies.Length];
         savedAngularVelocities = new Vector3[allRigidbodies.Length];
         wasKinematic = new bool[allRigidbodies.Length];
