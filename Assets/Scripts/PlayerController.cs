@@ -45,10 +45,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool onlyHorizontalPush = true;
     [SerializeField] float wallDamping = 0.6f;
 
-
-    //Pause menu
-    public InputActionReference pauseAction;
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -94,7 +90,6 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerControls.Run.canceled += onRun;
         playerInput.PlayerControls.Jump.started += onJump;
         playerInput.PlayerControls.Jump.canceled += onJump;
-
     }
 
     void handleJump()
@@ -188,6 +183,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, rotStore.x, 0f);
         theCam.transform.localRotation = Quaternion.Euler(rotStore.y, 0f, 0f);
     }
+
     private void OnEnable()
     {
         playerInput.PlayerControls.Enable();
@@ -198,4 +194,3 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerControls.Disable();
     }
 }
-
