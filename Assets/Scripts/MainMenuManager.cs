@@ -15,6 +15,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject mainMenuUI;
     [SerializeField] GameObject levelsUI;
     [SerializeField] GameObject settingsUI;
+    [SerializeField] GameObject creditsUI;
 
     private void Awake()
     {
@@ -33,8 +34,11 @@ public class MainMenuManager : MonoBehaviour
         mainMenuUI.SetActive(true);
         levelsUI.SetActive(false);
         settingsUI.SetActive(false);
+        creditsUI.SetActive(false);
+
     }
 
+    // Start Game Button
     public void OnStartButton()
     {
         Debug.Log("Start button clicked");
@@ -43,17 +47,27 @@ public class MainMenuManager : MonoBehaviour
 
         SceneManager.LoadScene(level1ToLoad);
     }
+    // Level Selector Button
     public void OnLevelsButton()
     {
         mainMenuUI.SetActive(false);
         levelsUI.SetActive(true);
         Debug.Log("Levels button clicked");
     }
+    // Settings Button
     public void OnSettingsButton()
     {
         mainMenuUI.SetActive(false);
         settingsUI.SetActive(true);
         Debug.Log("Settings button clicked");
+    }
+    // Credits Button
+    public void OnCreditsButton()
+    {
+        mainMenuUI.SetActive(false);
+        settingsUI.SetActive(false);
+        creditsUI.SetActive(true);
+        Debug.Log("Credits button clicked");
     }
     public void OnExitButton()
     {
@@ -71,6 +85,12 @@ public class MainMenuManager : MonoBehaviour
         settingsUI.SetActive(false);
         mainMenuUI.SetActive(true);
         Debug.Log("Back to Main Menu from Settings clicked");
+    }
+    public void OnBacktoSettingsfromCredits()
+    {
+        creditsUI.SetActive(false);
+        settingsUI.SetActive(true);
+        Debug.Log("Back to Settings from Credits clicked");
     }
     public void OnLevel1Button()
     {
