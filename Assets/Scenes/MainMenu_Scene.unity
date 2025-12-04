@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   level1ToLoad: Level 1
-  level2ToLoad: 
+  level2ToLoad: Level 2
   level3ToLoad: 
   level4ToLoad: 
   level5ToLoad: 
