@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+       
         // 1) Handle gravity and jumping
         handleGravity();
         handleJump();

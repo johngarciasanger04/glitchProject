@@ -50,7 +50,8 @@ public class PauseMenuController : MonoBehaviour
         Debug.Log("PAUSING - Physics frozen, player can still move!");
         
         // Find all rigidbodies
-        allRigidbodies = FindObjectsOfType<Rigidbody>();
+        //allRigidbodies = FindObjectsOfType<Rigidbody>();
+        allRigidbodies = FindObjectsByType<Rigidbody>(FindObjectsSortMode.None);
         savedVelocities = new Vector3[allRigidbodies.Length];
         savedAngularVelocities = new Vector3[allRigidbodies.Length];
         wasKinematic = new bool[allRigidbodies.Length];
@@ -66,6 +67,8 @@ public class PauseMenuController : MonoBehaviour
             allRigidbodies[i].angularVelocity = Vector3.zero;
             allRigidbodies[i].isKinematic = true;
         }
+
+        //Time.timeScale = 0f;
         
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(true);
@@ -95,7 +98,7 @@ public class PauseMenuController : MonoBehaviour
                 }
             }
         }
-        
+        //Time.timeScale = 1f;
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(false);
         
