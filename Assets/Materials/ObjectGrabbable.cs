@@ -5,9 +5,12 @@ public class ObjectGrabbable : MonoBehaviour
     private Rigidbody objectRigidbody;
     private Transform objectGrabPointTransform;
     public GameObject player;
+    private Vector3 moveOffset = Vector3.zero;
 
     private void Awake() {
         objectRigidbody = GetComponent<Rigidbody>();
+        objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        moveOffset = Vector3.zero;
     }
     public void Grab (Transform objectGrabPointTransform) {
         this.objectGrabPointTransform = objectGrabPointTransform;
@@ -20,12 +23,21 @@ public class ObjectGrabbable : MonoBehaviour
         objectRigidbody.useGravity = true;
         Debug.Log("object dropped.");
     }
-    private void FixedUpdate() {
-        if (objectGrabPointTransform != null) {
+
+    public void objectMove(Vector3 direction)
+    {
+        float moveSpeed = 2f;
+        moveOffset += direction.normalized * moveSpeed * Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
+        if (objectGrabPointTransform != null)
+        {
             float lerpSpeed = 10f;
-            Vector3 newPosition = Vector3.Lerp (transform.position, objectGrabPointTransform.position, Time.fixedDeltaTime * lerpSpeed); 
+            Vector3 targetPosition = objectGrabPointTransform.position + moveOffset;
+            Vector3 newPosition = Vector3.Lerp(objectRigidbody.position, targetPosition, Time.fixedDeltaTime * lerpSpeed);
             objectRigidbody.MovePosition(newPosition);
         }
-        
     }
 }

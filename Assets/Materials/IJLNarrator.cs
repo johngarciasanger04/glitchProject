@@ -1,14 +1,14 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class IJLNarrator : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI narratorText;
 
-    public bool canThrow = false;
-    bool seenThrowText = false; 
+    [Header("Input Actions")]
+    public InputActionReference nextLineInput;
 
-    // Different narration sets
     private string[] introLines = {
         "Welcome in!",
         "I see you finally got to this level.",
@@ -17,8 +17,8 @@ public class IJLNarrator : MonoBehaviour
 
     private string[] throwLines = {
         "Oh, you can't throw it?",
-        "...",
-        "I don't know how you're getting past the wall, then."
+        "...how else are you gonna get over the wall?",
+        "Maybe try jumping...on what? I don't know."
     };
 
     private string[] firstJump = {
@@ -27,31 +27,43 @@ public class IJLNarrator : MonoBehaviour
         "Just kidding! I know how to do that, at least."
     };
 
-    // Active set
     private string[] currentLines;
     private int currentIndex = 0;
 
-    void Start()
+    public bool canThrow;
+
+    void Awake()
     {
-        // Start with intro lines
         currentLines = introLines;
+        currentIndex = 0;
         ShowLine(currentIndex);
+    }
+
+    void OnEnable()
+    {
+        // Subscribe to input action
+        nextLineInput.action.performed += OnNextLine;
+        nextLineInput.action.Enable();
+    }
+
+    void OnDisable()
+    {
+        nextLineInput.action.performed -= OnNextLine;
+        nextLineInput.action.Disable();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-        {
-            NextLine();
-        }
-
-        // Example: switch to throw lines when pressing T
-        if (canThrow == true && seenThrowText == false)
+        if (canThrow)
         {
             SwitchLines(throwLines);
-            seenThrowText = true; 
-
+            canThrow = false; // reset so it only switches once
         }
+    }
+
+    private void OnNextLine(InputAction.CallbackContext ctx)
+    {
+        NextLine();
     }
 
     void ShowLine(int index)
@@ -78,11 +90,11 @@ public class IJLNarrator : MonoBehaviour
         currentLines = newLines;
         currentIndex = 0;
         ShowLine(currentIndex);
-
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-            {
-            currentIndex++;
+    }
+    public void FirstJump ()
+        {
+            currentLines = firstJump;
+            currentIndex = 0;
             ShowLine(currentIndex);
         }
-    }
 }

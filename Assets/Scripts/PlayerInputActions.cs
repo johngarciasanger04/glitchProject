@@ -118,6 +118,78 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd09e3de-d368-46df-8121-1ee1544261ed"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EnableThrow"",
+                    ""type"": ""Button"",
+                    ""id"": ""78b97681-b74f-42ec-91e5-3f636d7162e3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ObjectUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3a8c0f4-9815-4b01-ace6-b528879c1e7c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ObjectDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""72615d2a-5283-4773-809e-d48fbe012336"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ObjectLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""8248e71b-5048-49d8-a8a0-a1ed3acd3317"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ObjectRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8bef4a6-5d4f-4be5-b048-29782bbd66d2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ObjectForward"",
+                    ""type"": ""Button"",
+                    ""id"": ""093f8105-ad43-4a79-9997-7cfc02369911"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ObjectBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""32e09987-702c-401d-80aa-6555232afa5e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -197,6 +269,122 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24ee1ecd-5eb9-47a9-ba10-320e57f3b386"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4fb6774-7a5d-42fb-b0c5-5428bd59ee85"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnableThrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d82178be-464e-4fa6-84ee-5d31a977ec4e"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ObjectUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73d5c8d5-076d-4e6b-869b-77493a6634a6"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ObjectDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""393166cd-7f67-48cc-93b0-c59a15b850f0"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ObjectLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe380107-634a-4db0-8f8e-0c977919d547"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ObjectRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8ca64e4-c5db-48b4-98f1-05f89ce76f91"",
+                    ""path"": ""<Keyboard>/leftBracket"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ObjectForward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e24c7e1-9058-4a0a-a144-80a1fbc7b05d"",
+                    ""path"": ""<Keyboard>/rightBracket"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ObjectBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Narrator"",
+            ""id"": ""38191424-1f6a-4f55-9e17-d62a5216c6a5"",
+            ""actions"": [
+                {
+                    ""name"": ""nextLineInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""a484731a-5b5c-4423-a1fa-cec80e328a35"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""eba2df96-8c38-4a48-afba-835e9e871a3a"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""nextLineInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,11 +396,23 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerControls_Move = m_PlayerControls.FindAction("Move", throwIfNotFound: true);
         m_PlayerControls_Run = m_PlayerControls.FindAction("Run", throwIfNotFound: true);
         m_PlayerControls_Jump = m_PlayerControls.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerControls_PickUp = m_PlayerControls.FindAction("PickUp", throwIfNotFound: true);
+        m_PlayerControls_EnableThrow = m_PlayerControls.FindAction("EnableThrow", throwIfNotFound: true);
+        m_PlayerControls_ObjectUp = m_PlayerControls.FindAction("ObjectUp", throwIfNotFound: true);
+        m_PlayerControls_ObjectDown = m_PlayerControls.FindAction("ObjectDown", throwIfNotFound: true);
+        m_PlayerControls_ObjectLeft = m_PlayerControls.FindAction("ObjectLeft", throwIfNotFound: true);
+        m_PlayerControls_ObjectRight = m_PlayerControls.FindAction("ObjectRight", throwIfNotFound: true);
+        m_PlayerControls_ObjectForward = m_PlayerControls.FindAction("ObjectForward", throwIfNotFound: true);
+        m_PlayerControls_ObjectBack = m_PlayerControls.FindAction("ObjectBack", throwIfNotFound: true);
+        // Narrator
+        m_Narrator = asset.FindActionMap("Narrator", throwIfNotFound: true);
+        m_Narrator_nextLineInput = m_Narrator.FindAction("nextLineInput", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
     {
         UnityEngine.Debug.Assert(!m_PlayerControls.enabled, "This will cause a leak and performance issues, PlayerInputActions.PlayerControls.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Narrator.enabled, "This will cause a leak and performance issues, PlayerInputActions.Narrator.Disable() has not been called.");
     }
 
     /// <summary>
@@ -291,6 +491,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_Move;
     private readonly InputAction m_PlayerControls_Run;
     private readonly InputAction m_PlayerControls_Jump;
+    private readonly InputAction m_PlayerControls_PickUp;
+    private readonly InputAction m_PlayerControls_EnableThrow;
+    private readonly InputAction m_PlayerControls_ObjectUp;
+    private readonly InputAction m_PlayerControls_ObjectDown;
+    private readonly InputAction m_PlayerControls_ObjectLeft;
+    private readonly InputAction m_PlayerControls_ObjectRight;
+    private readonly InputAction m_PlayerControls_ObjectForward;
+    private readonly InputAction m_PlayerControls_ObjectBack;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerControls".
     /// </summary>
@@ -314,6 +522,38 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControls/Jump".
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_PlayerControls_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/PickUp".
+        /// </summary>
+        public InputAction @PickUp => m_Wrapper.m_PlayerControls_PickUp;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/EnableThrow".
+        /// </summary>
+        public InputAction @EnableThrow => m_Wrapper.m_PlayerControls_EnableThrow;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/ObjectUp".
+        /// </summary>
+        public InputAction @ObjectUp => m_Wrapper.m_PlayerControls_ObjectUp;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/ObjectDown".
+        /// </summary>
+        public InputAction @ObjectDown => m_Wrapper.m_PlayerControls_ObjectDown;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/ObjectLeft".
+        /// </summary>
+        public InputAction @ObjectLeft => m_Wrapper.m_PlayerControls_ObjectLeft;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/ObjectRight".
+        /// </summary>
+        public InputAction @ObjectRight => m_Wrapper.m_PlayerControls_ObjectRight;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/ObjectForward".
+        /// </summary>
+        public InputAction @ObjectForward => m_Wrapper.m_PlayerControls_ObjectForward;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/ObjectBack".
+        /// </summary>
+        public InputAction @ObjectBack => m_Wrapper.m_PlayerControls_ObjectBack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -349,6 +589,30 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @PickUp.started += instance.OnPickUp;
+            @PickUp.performed += instance.OnPickUp;
+            @PickUp.canceled += instance.OnPickUp;
+            @EnableThrow.started += instance.OnEnableThrow;
+            @EnableThrow.performed += instance.OnEnableThrow;
+            @EnableThrow.canceled += instance.OnEnableThrow;
+            @ObjectUp.started += instance.OnObjectUp;
+            @ObjectUp.performed += instance.OnObjectUp;
+            @ObjectUp.canceled += instance.OnObjectUp;
+            @ObjectDown.started += instance.OnObjectDown;
+            @ObjectDown.performed += instance.OnObjectDown;
+            @ObjectDown.canceled += instance.OnObjectDown;
+            @ObjectLeft.started += instance.OnObjectLeft;
+            @ObjectLeft.performed += instance.OnObjectLeft;
+            @ObjectLeft.canceled += instance.OnObjectLeft;
+            @ObjectRight.started += instance.OnObjectRight;
+            @ObjectRight.performed += instance.OnObjectRight;
+            @ObjectRight.canceled += instance.OnObjectRight;
+            @ObjectForward.started += instance.OnObjectForward;
+            @ObjectForward.performed += instance.OnObjectForward;
+            @ObjectForward.canceled += instance.OnObjectForward;
+            @ObjectBack.started += instance.OnObjectBack;
+            @ObjectBack.performed += instance.OnObjectBack;
+            @ObjectBack.canceled += instance.OnObjectBack;
         }
 
         /// <summary>
@@ -369,6 +633,30 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @PickUp.started -= instance.OnPickUp;
+            @PickUp.performed -= instance.OnPickUp;
+            @PickUp.canceled -= instance.OnPickUp;
+            @EnableThrow.started -= instance.OnEnableThrow;
+            @EnableThrow.performed -= instance.OnEnableThrow;
+            @EnableThrow.canceled -= instance.OnEnableThrow;
+            @ObjectUp.started -= instance.OnObjectUp;
+            @ObjectUp.performed -= instance.OnObjectUp;
+            @ObjectUp.canceled -= instance.OnObjectUp;
+            @ObjectDown.started -= instance.OnObjectDown;
+            @ObjectDown.performed -= instance.OnObjectDown;
+            @ObjectDown.canceled -= instance.OnObjectDown;
+            @ObjectLeft.started -= instance.OnObjectLeft;
+            @ObjectLeft.performed -= instance.OnObjectLeft;
+            @ObjectLeft.canceled -= instance.OnObjectLeft;
+            @ObjectRight.started -= instance.OnObjectRight;
+            @ObjectRight.performed -= instance.OnObjectRight;
+            @ObjectRight.canceled -= instance.OnObjectRight;
+            @ObjectForward.started -= instance.OnObjectForward;
+            @ObjectForward.performed -= instance.OnObjectForward;
+            @ObjectForward.canceled -= instance.OnObjectForward;
+            @ObjectBack.started -= instance.OnObjectBack;
+            @ObjectBack.performed -= instance.OnObjectBack;
+            @ObjectBack.canceled -= instance.OnObjectBack;
         }
 
         /// <summary>
@@ -402,6 +690,102 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlayerControlsActions" /> instance referencing this action map.
     /// </summary>
     public PlayerControlsActions @PlayerControls => new PlayerControlsActions(this);
+
+    // Narrator
+    private readonly InputActionMap m_Narrator;
+    private List<INarratorActions> m_NarratorActionsCallbackInterfaces = new List<INarratorActions>();
+    private readonly InputAction m_Narrator_nextLineInput;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Narrator".
+    /// </summary>
+    public struct NarratorActions
+    {
+        private @PlayerInputActions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public NarratorActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Narrator/nextLineInput".
+        /// </summary>
+        public InputAction @nextLineInput => m_Wrapper.m_Narrator_nextLineInput;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Narrator; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="NarratorActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(NarratorActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="NarratorActions" />
+        public void AddCallbacks(INarratorActions instance)
+        {
+            if (instance == null || m_Wrapper.m_NarratorActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_NarratorActionsCallbackInterfaces.Add(instance);
+            @nextLineInput.started += instance.OnNextLineInput;
+            @nextLineInput.performed += instance.OnNextLineInput;
+            @nextLineInput.canceled += instance.OnNextLineInput;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="NarratorActions" />
+        private void UnregisterCallbacks(INarratorActions instance)
+        {
+            @nextLineInput.started -= instance.OnNextLineInput;
+            @nextLineInput.performed -= instance.OnNextLineInput;
+            @nextLineInput.canceled -= instance.OnNextLineInput;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="NarratorActions.UnregisterCallbacks(INarratorActions)" />.
+        /// </summary>
+        /// <seealso cref="NarratorActions.UnregisterCallbacks(INarratorActions)" />
+        public void RemoveCallbacks(INarratorActions instance)
+        {
+            if (m_Wrapper.m_NarratorActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="NarratorActions.AddCallbacks(INarratorActions)" />
+        /// <seealso cref="NarratorActions.RemoveCallbacks(INarratorActions)" />
+        /// <seealso cref="NarratorActions.UnregisterCallbacks(INarratorActions)" />
+        public void SetCallbacks(INarratorActions instance)
+        {
+            foreach (var item in m_Wrapper.m_NarratorActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_NarratorActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="NarratorActions" /> instance referencing this action map.
+    /// </summary>
+    public NarratorActions @Narrator => new NarratorActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerControls" which allows adding and removing callbacks.
     /// </summary>
@@ -430,5 +814,76 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PickUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPickUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EnableThrow" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEnableThrow(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ObjectUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnObjectUp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ObjectDown" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnObjectDown(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ObjectLeft" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnObjectLeft(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ObjectRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnObjectRight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ObjectForward" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnObjectForward(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ObjectBack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnObjectBack(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Narrator" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="NarratorActions.AddCallbacks(INarratorActions)" />
+    /// <seealso cref="NarratorActions.RemoveCallbacks(INarratorActions)" />
+    public interface INarratorActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "nextLineInput" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNextLineInput(InputAction.CallbackContext context);
     }
 }
