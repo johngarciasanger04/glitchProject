@@ -22,6 +22,7 @@ public class respawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        flag = other.gameObject;
         if(other.gameObject.CompareTag("Respawn"))
         {
             spawnPoint = flag.transform.position;
