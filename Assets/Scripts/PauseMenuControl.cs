@@ -47,37 +47,38 @@ public class PauseMenuController : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("PAUSING - Physics frozen, player can still move!");
+    Debug.Log("PAUSING - Physics frozen, player can still move!");
+    
+    // Find all rigidbodies (including kinematic ones)
+    allRigidbodies = FindObjectsOfType<Rigidbody>();
+    savedVelocities = new Vector3[allRigidbodies.Length];
+    savedAngularVelocities = new Vector3[allRigidbodies.Length];
+    wasKinematic = new bool[allRigidbodies.Length];
+    
+    // Freeze all physics
+    for (int i = 0; i < allRigidbodies.Length; i++)
+    {
+        wasKinematic[i] = allRigidbodies[i].isKinematic;
         
-        // Find all rigidbodies
-        //allRigidbodies = FindObjectsOfType<Rigidbody>();
-        allRigidbodies = FindObjectsByType<Rigidbody>(FindObjectsSortMode.None);
-        savedVelocities = new Vector3[allRigidbodies.Length];
-        savedAngularVelocities = new Vector3[allRigidbodies.Length];
-        wasKinematic = new bool[allRigidbodies.Length];
-        
-        // Freeze all physics
-        for (int i = 0; i < allRigidbodies.Length; i++)
+        if (!allRigidbodies[i].isKinematic)
         {
             savedVelocities[i] = allRigidbodies[i].linearVelocity;
             savedAngularVelocities[i] = allRigidbodies[i].angularVelocity;
-            wasKinematic[i] = allRigidbodies[i].isKinematic;
-            
             allRigidbodies[i].linearVelocity = Vector3.zero;
             allRigidbodies[i].angularVelocity = Vector3.zero;
-            allRigidbodies[i].isKinematic = true;
         }
-
-        //Time.timeScale = 0f;
         
-        if (pauseMenuUI != null)
-            pauseMenuUI.SetActive(true);
-        
-        isPaused = true;
-        
-        // Show cursor for menu interaction
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Make everything kinematic to freeze movement
+        allRigidbodies[i].isKinematic = true;
+    }
+    
+    if (pauseMenuUI != null)
+        pauseMenuUI.SetActive(true);
+    
+    isPaused = true;
+    
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
     }
 
     public void Resume()
