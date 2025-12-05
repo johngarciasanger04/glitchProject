@@ -260,41 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494e8695c9acfb84f83e85f8523ae3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SC_DoorScript
-  openSpeedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.8
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  openSpeedMultiplier: 2
-  doorOpenAngle: 90
 --- !u!65 &132755217
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1240,6 +1205,37 @@ Transform:
   - {fileID: 1218873860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &504172087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 504172088}
+  m_Layer: 0
+  m_Name: GrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &504172088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504172087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.332}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1278739982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &608414362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1249,7 @@ GameObject:
   - component: {fileID: 608414365}
   - component: {fileID: 608414364}
   - component: {fileID: 608414363}
+  - component: {fileID: 608414368}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1379,6 +1376,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &608414368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608414362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f8e4468833c9b4ab5baade9154e4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectGrabbable
+  player: {fileID: 1278739967}
 --- !u!1 &613681408
 GameObject:
   m_ObjectHideFlags: 0
@@ -6675,7 +6685,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
   pauseMenuUI: {fileID: 246237716}
-  pauseAction: {fileID: -8058409656849746523, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  pauseAction: {fileID: -7925777196109391460, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+--- !u!114 &1278739976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278739967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d450345eb3f9fe34e93f19bdccc0a52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPickUp
+  CameraTransform: {fileID: 1409859113}
+  objectGrabPointTransform: {fileID: 504172088}
+  pickUpLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  narrator: {fileID: 0}
+  pickUpInput: {fileID: 642140856183202690, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  enableThrowInput: {fileID: 5050280897869595737, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  moveUp: {fileID: 1433860541042439300, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  moveDown: {fileID: 2435425763271996110, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  moveLeft: {fileID: -7592174935573308466, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  moveRight: {fileID: -7413178470683796442, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  moveForward: {fileID: -3687512532958951212, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  moveBack: {fileID: 6188617027960994617, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+--- !u!4 &1278739982 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8787496206356974469, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
+  m_PrefabInstance: {fileID: 1409859109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1323110849
 GameObject:
   m_ObjectHideFlags: 0
@@ -6863,7 +6904,10 @@ PrefabInstance:
     - {fileID: 5481614647748841009, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
     - {fileID: 8013812376567018972, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8787496206356974469, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 504172088}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4590603327443646850, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
       insertIndex: -1
@@ -6871,6 +6915,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4590603327443646850, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1278739975}
+    - targetCorrespondingSourceObject: {fileID: 4590603327443646850, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1278739976}
     - targetCorrespondingSourceObject: {fileID: 2531577452937848847, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1409859112}
@@ -6978,6 +7025,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!4 &1409859113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2598450537992678413, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
+  m_PrefabInstance: {fileID: 1409859109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1441584397
 GameObject:
   m_ObjectHideFlags: 0
@@ -7551,9 +7603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ef210ee98e7e642a3cbef13e4a5196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BouncingBall
-  player: {fileID: 1278739967}
-  ball: {fileID: 1645002389}
-  thrust: 500
 --- !u!54 &1645002391
 Rigidbody:
   m_ObjectHideFlags: 0

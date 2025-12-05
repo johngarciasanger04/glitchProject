@@ -190,6 +190,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""08063db7-a0ad-4309-87a4-6871c512984b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -357,6 +366,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ObjectBack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bea86dd3-8a68-4edf-a137-168d3972349c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -404,6 +424,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerControls_ObjectRight = m_PlayerControls.FindAction("ObjectRight", throwIfNotFound: true);
         m_PlayerControls_ObjectForward = m_PlayerControls.FindAction("ObjectForward", throwIfNotFound: true);
         m_PlayerControls_ObjectBack = m_PlayerControls.FindAction("ObjectBack", throwIfNotFound: true);
+        m_PlayerControls_Pause = m_PlayerControls.FindAction("Pause", throwIfNotFound: true);
         // Narrator
         m_Narrator = asset.FindActionMap("Narrator", throwIfNotFound: true);
         m_Narrator_nextLineInput = m_Narrator.FindAction("nextLineInput", throwIfNotFound: true);
@@ -499,6 +520,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_ObjectRight;
     private readonly InputAction m_PlayerControls_ObjectForward;
     private readonly InputAction m_PlayerControls_ObjectBack;
+    private readonly InputAction m_PlayerControls_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerControls".
     /// </summary>
@@ -554,6 +576,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControls/ObjectBack".
         /// </summary>
         public InputAction @ObjectBack => m_Wrapper.m_PlayerControls_ObjectBack;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_PlayerControls_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -613,6 +639,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ObjectBack.started += instance.OnObjectBack;
             @ObjectBack.performed += instance.OnObjectBack;
             @ObjectBack.canceled += instance.OnObjectBack;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -657,6 +686,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ObjectBack.started -= instance.OnObjectBack;
             @ObjectBack.performed -= instance.OnObjectBack;
             @ObjectBack.canceled -= instance.OnObjectBack;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -870,6 +902,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnObjectBack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Narrator" which allows adding and removing callbacks.
