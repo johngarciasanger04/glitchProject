@@ -8,22 +8,7 @@ public class MovingPlatform : MonoBehaviour
     
     private Vector3 startPosition;
     private Rigidbody rb;
-    
-    void OnCollisionEnter(Collision collision)
-    {
-    if (collision.gameObject.CompareTag("Player"))
-    {
-        collision.transform.SetParent(transform);
-    }
-    }
 
-    void OnCollisionExit(Collision collision)
-    {
-    if (collision.gameObject.CompareTag("Player"))
-    {
-        collision.transform.SetParent(null);
-    }
-    }
     void Start()
     {
         startPosition = transform.position;
@@ -31,7 +16,7 @@ public class MovingPlatform : MonoBehaviour
         
         if (rb != null)
         {
-            rb.isKinematic = true;  // KEY CHANGE - Makes it unmovable by physics
+            rb.isKinematic = true;
             rb.useGravity = false;
         }
     }
@@ -49,6 +34,22 @@ public class MovingPlatform : MonoBehaviour
         if (Vector3.Distance(startPosition, transform.position) > destroyDistance)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(transform);
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.SetParent(null);
         }
     }
 }
