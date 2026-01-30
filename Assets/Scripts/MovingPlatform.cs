@@ -7,49 +7,39 @@ public class MovingPlatform : MonoBehaviour
     public float destroyDistance = 50f;
     
     private Vector3 startPosition;
-    private Rigidbody rb;
+    private Vector3 lastPosition;
 
     void Start()
     {
         startPosition = transform.position;
-        rb = GetComponent<Rigidbody>();
-        
-        if (rb != null)
-        {
-            rb.isKinematic = true;
-            rb.useGravity = false;
-        }
+        lastPosition = transform.position;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        // Move using MovePosition for kinematic rigidbodies
-        if (rb != null)
-        {
-            Vector3 newPos = rb.position + (moveDirection.normalized * speed * Time.fixedDeltaTime);
-            rb.MovePosition(newPos);
-        }
+        // Move platform
+        transform.position += moveDirection.normalized * speed * Time.deltaTime;
         
         // Destroy when too far
         if (Vector3.Distance(startPosition, transform.position) > destroyDistance)
         {
             Destroy(gameObject);
         }
+        
+        lastPosition = transform.position;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(transform);
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.transform.SetParent(null);
+            // Move player with platform
+            Vector3 platformMovement = transform.position - lastPosition;
+            CharacterController controller = collision.gameObject.GetComponent<CharacterController>();
+            if (controller != null)
+            {
+                controller.Move(platformMovement);
+            }
         }
     }
 }
