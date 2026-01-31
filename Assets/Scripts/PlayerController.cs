@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     Vector3 currentRunMovement;
     bool isMovementPressed;
     bool isRunPressed;
-    public float runMultiplier = 0.05f;  // Changed from 30.5f - that's way too fast!
+    public float runMultiplier = 0.05f;
 
     public InputActionReference sprintAction;
 
@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool onlyHorizontalPush = true;
     [SerializeField] float wallDamping = 0.6f;
 
+    //Moving platform
+    private Transform currentPlatform;
 
     //Pause menu
     public InputActionReference pauseAction;
@@ -64,6 +66,34 @@ public class PlayerController : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        Debug.Log("Hit object: " + hit.gameObject.name + " | Tag: " + hit.gameObject.tag + " | Normal: " + hit.normal);
+        
+        // Check if standing on a moving platform
+        if (hit.gameObject.CompareTag("MovingPlatform"))
+        {
+            Debug.Log("MOVING PLATFORM DETECTED!");
+            
+            // Check if hitting from above (standing on it)
+            float dotProduct = Vector3.Dot(hit.normal, Vector3.up);
+            Debug.Log("Dot product: " + dotProduct);
+            
+            if (dotProduct > 0.5f)
+            {
+                Debug.Log("PARENTING PLAYER TO PLATFORM!");
+                currentPlatform = hit.transform;
+                transform.SetParent(currentPlatform);
+            }
+            else
+            {
+                Debug.Log("Hit from side/below, not parenting");
+            }
+        }
+        else
+        {
+            Debug.Log("Not a moving platform");
+        }
+
+        // Push objects
         var rb = hit.rigidbody;
         if (!rb || rb.isKinematic) return;
         if (rb.mass > maxPushMass) return;
@@ -94,7 +124,6 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerControls.Run.canceled += onRun;
         playerInput.PlayerControls.Jump.started += onJump;
         playerInput.PlayerControls.Jump.canceled += onJump;
-
     }
 
     void handleJump()
@@ -133,7 +162,6 @@ public class PlayerController : MonoBehaviour
     {
         if (characterController.isGrounded)
         {
-            // Small negative value to keep grounded
             if (currentMovement.y < 0)
                 currentMovement.y = groundedGravity;
             if (currentRunMovement.y < 0)
@@ -153,7 +181,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-       
         // 1) Handle gravity and jumping
         handleGravity();
         handleJump();
@@ -188,7 +215,15 @@ public class PlayerController : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0f, rotStore.x, 0f);
         theCam.transform.localRotation = Quaternion.Euler(rotStore.y, 0f, 0f);
+
+        // 9) Clear platform reference only when jumping
+        if (isJumpPressed && currentPlatform != null)
+        {
+            transform.SetParent(null);
+            currentPlatform = null;
+        }
     }
+
     private void OnEnable()
     {
         playerInput.PlayerControls.Enable();
@@ -199,4 +234,3 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerControls.Disable();
     }
 }
-
