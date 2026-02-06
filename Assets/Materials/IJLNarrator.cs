@@ -58,6 +58,7 @@ public class IJLNarrator : MonoBehaviour
         {
             SwitchLines(throwLines);
             canThrow = false; // reset so it only switches once
+            
         }
     }
 
