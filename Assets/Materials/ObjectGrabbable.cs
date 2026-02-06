@@ -9,16 +9,19 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void Awake() {
         objectRigidbody = GetComponent<Rigidbody>();
-        objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+        //objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         moveOffset = Vector3.zero;
     }
     public void Grab (Transform objectGrabPointTransform) {
+        objectRigidbody.rotation = Quaternion.Euler(0, 0, 0);
+        objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRigidbody.useGravity = false;
         Debug.Log("object grabbed!");
     }
 
     public void Drop () {
+        objectRigidbody.constraints = RigidbodyConstraints.None;
         this.objectGrabPointTransform = null;
         objectRigidbody.useGravity = true;
         Debug.Log("object dropped.");
