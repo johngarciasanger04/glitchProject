@@ -151,9 +151,8 @@ GameObject:
   - component: {fileID: 6372854179457985229}
   - component: {fileID: 6147108179253967416}
   - component: {fileID: 2527558032285861006}
-  - component: {fileID: 4818605576588459292}
-  - component: {fileID: -2203138203037178363}
-  - component: {fileID: 6628533867450464103}
+  - component: {fileID: 6741146015371151217}
+  - component: {fileID: 8403474877702997843}
   m_Layer: 0
   m_Name: movingPlatform
   m_TagString: MovingPlatform
@@ -254,22 +253,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4818605576588459292
-MonoBehaviour:
+--- !u!54 &6741146015371151217
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3945810297855877916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694ed7c9a3adc9c478ec0e1860d49920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
-  startPoint: {fileID: 0}
-  endPoint: {fileID: 0}
-  speed: 5
---- !u!65 &-2203138203037178363
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &8403474877702997843
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,16 +300,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.19, z: 0}
---- !u!114 &6628533867450464103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3945810297855877916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419cbf7fd0f537243b7e031a1f0b3bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_Center: {x: 0, y: 0.09, z: 0}

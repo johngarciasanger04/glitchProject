@@ -5,22 +5,52 @@ public class MovingPlatform : MonoBehaviour
     public Transform startPoint;
     public Transform endPoint;
     public float speed = 2.0f;
-    private Vector3 target;
+    public float waitTime = 1.0f;
+
+    private Vector3 targetPosition;
+    private float nextMoveTime;
+    private bool movingToEnd = true;
 
     void Start()
     {
-        target = endPoint.position;
+        transform.position = startPoint.position;
+        targetPosition = endPoint.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        // Move the platform
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        // Don't move if the game is paused (PauseMenuController handles this by setting isKinematic)
+        // but we add an extra check here for safety.
+        if (PauseMenuController.isPaused) return;
 
-        // Switch targets when reaching a point
-        if (Vector3.Distance(transform.position, target) < 0.1f)
+        if (Time.time >= nextMoveTime)
         {
-            target = (target == startPoint.position) ? endPoint.position : startPoint.position;
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.fixedDeltaTime);
+
+            if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+            {
+                // Swap targets
+                movingToEnd = !movingToEnd;
+                targetPosition = movingToEnd ? endPoint.position : startPoint.position;
+                nextMoveTime = Time.time + waitTime;
+            }
+        }
+    }
+
+    // This handles "sticking" the player to the platform
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.transform.SetParent(transform);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.transform.SetParent(null);
         }
     }
 }

@@ -8,21 +8,23 @@ public class PlayerController : MonoBehaviour
 
     //looking
     public InputActionReference lookAction;
-    public float moveSpeed = 8f;
+    public float moveSpeed = 2.5f;
 
     private Vector2 rotStore;
-    public float lookSpeed = 30f;
+    public float lookSpeed;
     public Camera theCam;
 
     public float camZoomNormal = 60f;
-    public float camZoomOut = 120f;
+    public float camZoomOut = 75f;
     public float camZoomSpeed = 5f;
 
     //move plus run
     Vector2 currentMovementInput;
     Vector3 currentMovement;
+    Vector3 currentRunMovement;
     bool isMovementPressed;
-    public float runMultiplier = 2f; // Sprinting = 2x faster
+    bool isRunPressed;
+    public float runMultiplier = 0.05f;  // Changed from 30.5f - that's way too fast!
 
     public InputActionReference sprintAction;
 
@@ -33,17 +35,46 @@ public class PlayerController : MonoBehaviour
     //jumping
     bool isJumpPressed = false;
     float initialJumpVelocity;
-    public float maxJumpHeight = 1.0f;
-    public float maxJumpTime = 0.5f;
+    float maxJumpHeight = 1.0f;
+    float maxJumpTime = 0.5f;
     bool isJumping = false;
 
-    // Platform detection
-    private Transform currentPlatform;
+    [Header("Push Settings")]
+    [SerializeField] float pushStrength = 2.5f;
+    [SerializeField] float maxPushMass = 200f;
+    [SerializeField] bool onlyHorizontalPush = true;
+    [SerializeField] float wallDamping = 0.6f;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    float CurrentPlanarSpeed()
+    {
+        Vector3 v = characterController.velocity;
+        v.y = 0f;
+        return v.magnitude;
+    }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        var rb = hit.rigidbody;
+        if (!rb || rb.isKinematic) return;
+        if (rb.mass > maxPushMass) return;
+
+        Vector3 pushDir = hit.moveDirection;
+
+        if (onlyHorizontalPush && pushDir.y > -0.2f) 
+            pushDir.y = 0f;
+
+        float speed = CurrentPlanarSpeed();
+        float facingWall = 1f - Mathf.Clamp01(Mathf.Abs(hit.normal.y) * 5f);
+        float damping = Mathf.Lerp(1f, wallDamping, facingWall);
+
+        Vector3 impulse = pushDir.normalized * pushStrength * speed * damping;
+        rb.AddForceAtPosition(impulse, hit.point, ForceMode.Impulse);
     }
 
     private void Awake()
@@ -55,8 +86,24 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerControls.Move.started += onMovementInput;
         playerInput.PlayerControls.Move.canceled += onMovementInput;
         playerInput.PlayerControls.Move.performed += onMovementInput;
+        playerInput.PlayerControls.Run.started += onRun;
+        playerInput.PlayerControls.Run.canceled += onRun;
         playerInput.PlayerControls.Jump.started += onJump;
         playerInput.PlayerControls.Jump.canceled += onJump;
+    }
+
+    void handleJump()
+    {
+        if (!isJumping && characterController.isGrounded && isJumpPressed)
+        {
+            isJumping = true;
+            currentMovement.y = initialJumpVelocity;
+            currentRunMovement.y = initialJumpVelocity;
+        }
+        else if (!isJumpPressed && isJumping && characterController.isGrounded)
+        {
+            isJumping = false;
+        }
     }
 
     void setupJumpVariables()
@@ -72,123 +119,62 @@ public class PlayerController : MonoBehaviour
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
     }
 
-    void onJump(InputAction.CallbackContext context)
+    void onRun(InputAction.CallbackContext context)
     {
-        isJumpPressed = context.ReadValueAsButton();
-    }
-
-    void handleJump()
-    {
-        if (!isJumping && characterController.isGrounded && isJumpPressed)
-        {
-            // Detach from platform when jumping
-            if (currentPlatform != null)
-            {
-                transform.SetParent(null);
-                currentPlatform = null;
-            }
-            
-            isJumping = true;
-            currentMovement.y = initialJumpVelocity;
-        }
-        else if (!isJumpPressed && isJumping && characterController.isGrounded)
-        {
-            isJumping = false;
-        }
+        isRunPressed = context.ReadValueAsButton();
     }
 
     void handleGravity()
     {
         if (characterController.isGrounded)
         {
+            // Small negative value to keep grounded
             if (currentMovement.y < 0)
                 currentMovement.y = groundedGravity;
+            if (currentRunMovement.y < 0)
+                currentRunMovement.y = groundedGravity;
         }
         else
         {
             currentMovement.y += gravity * Time.deltaTime;
+            currentRunMovement.y += gravity * Time.deltaTime;
         }
     }
 
-    void CheckPlatform()
+    void onJump(InputAction.CallbackContext context)
     {
-        if (!characterController.isGrounded)
-        {
-            if (currentPlatform != null)
-            {
-                transform.SetParent(null);
-                currentPlatform = null;
-            }
-            return;
-        }
-
-        // Shoot a ray down from player center
-        RaycastHit hit;
-        float rayDistance = (characterController.height / 2f) + 0.3f;
-        
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, rayDistance))
-        {
-            // Check if we hit a platform
-            MovingPlatform platform = hit.collider.GetComponent<MovingPlatform>();
-            
-            if (platform != null)
-            {
-                // Parent to platform
-                if (currentPlatform != platform.transform)
-                {
-                    transform.SetParent(platform.transform);
-                    currentPlatform = platform.transform;
-                    Debug.Log("Attached to platform!");
-                }
-            }
-            else
-            {
-                // Not on platform, detach
-                if (currentPlatform != null)
-                {
-                    transform.SetParent(null);
-                    currentPlatform = null;
-                    Debug.Log("Detached from platform");
-                }
-            }
-        }
+        isJumpPressed = context.ReadValueAsButton();
     }
 
     void Update()
     {
-        // Keep scale normal when parented
-        if (transform.parent != null)
-        {
-            transform.localScale = Vector3.one;
-        }
-
-        // Check what we're standing on
-        CheckPlatform();
-
-        // Handle physics
+        // 1) Handle gravity and jumping
         handleGravity();
         handleJump();
 
-        // Movement
+        // 2) Build horizontal movement relative to player facing
         Vector3 forward = transform.forward;
         Vector3 right = transform.right;
         Vector3 horizontalMove = (forward * currentMovementInput.y + right * currentMovementInput.x).normalized;
 
-        // Speed
+        // 3) Determine speed (walk or sprint)
         bool isSprinting = sprintAction.action.IsPressed() && isMovementPressed;
         float currentSpeed = isSprinting ? (moveSpeed * runMultiplier) : moveSpeed;
 
-        // Apply movement
+        // 4) Apply speed to horizontal movement
         Vector3 velocity = horizontalMove * currentSpeed;
+
+        // 5) Preserve vertical velocity from gravity/jump
         velocity.y = currentMovement.y;
+
+        // 6) Move the character
         characterController.Move(velocity * Time.deltaTime);
 
-        // Camera
-        bool sprint = isSprinting && isMovementPressed;
-        float targetFOV = sprint ? camZoomOut : camZoomNormal;
+        // 7) Handle camera FOV zoom for sprint
+        float targetFOV = (isSprinting && isMovementPressed) ? camZoomOut : camZoomNormal;
         theCam.fieldOfView = Mathf.Lerp(theCam.fieldOfView, targetFOV, Time.deltaTime * camZoomSpeed);
 
-        // Look
+        // 8) Handle camera look
         Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
         lookInput.y = -lookInput.y;
         rotStore = rotStore + (lookInput * lookSpeed * Time.deltaTime);
@@ -196,13 +182,6 @@ public class PlayerController : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0f, rotStore.x, 0f);
         theCam.transform.localRotation = Quaternion.Euler(rotStore.y, 0f, 0f);
-
-        // Keep camera attached
-        if (theCam != null && theCam.transform.parent != transform)
-        {
-            theCam.transform.SetParent(transform);
-            theCam.transform.localPosition = new Vector3(0, 0.6f, 0);
-        }
     }
 
     private void OnEnable()
