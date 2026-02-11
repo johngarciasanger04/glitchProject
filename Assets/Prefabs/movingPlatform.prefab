@@ -152,6 +152,8 @@ GameObject:
   - component: {fileID: 6147108179253967416}
   - component: {fileID: 2527558032285861006}
   - component: {fileID: 4818605576588459292}
+  - component: {fileID: -2203138203037178363}
+  - component: {fileID: 6628533867450464103}
   m_Layer: 0
   m_Name: movingPlatform
   m_TagString: MovingPlatform
@@ -168,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 3945810297855877916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.0000005066395, w: 1}
-  m_LocalPosition: {x: 128.84, y: 560.67, z: 121.41}
+  m_LocalPosition: {x: 128.84, y: 560.76, z: 121.41}
   m_LocalScale: {x: 3, y: 0.2, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -264,6 +266,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694ed7c9a3adc9c478ec0e1860d49920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
-  moveDirection: {x: 1, y: 0, z: 0}
+  startPoint: {fileID: 0}
+  endPoint: {fileID: 0}
   speed: 5
-  destroyDistance: 50
+--- !u!65 &-2203138203037178363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945810297855877916}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.19, z: 0}
+--- !u!114 &6628533867450464103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3945810297855877916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419cbf7fd0f537243b7e031a1f0b3bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'

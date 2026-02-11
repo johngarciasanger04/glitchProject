@@ -5,7 +5,7 @@ public class PlatformSpawner : MonoBehaviour
     public GameObject platformPrefab;
     public float spawnInterval = 2f;
     public Vector3 spawnOffset = Vector3.zero;
-    public Vector3 randomRange = Vector3.zero; // Random variation
+    public Vector3 randomRange = Vector3.zero;
     
     private float timer;
 
