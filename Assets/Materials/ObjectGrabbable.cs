@@ -9,9 +9,12 @@ public class ObjectGrabbable : MonoBehaviour
 
     private void Awake() {
         objectRigidbody = GetComponent<Rigidbody>();
+        objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         moveOffset = Vector3.zero;
     }
     public void Grab (Transform objectGrabPointTransform) {
+        objectRigidbody.rotation = Quaternion.Euler(0, 0, 0);
+        objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         objectRigidbody.useGravity = false;
@@ -19,6 +22,7 @@ public class ObjectGrabbable : MonoBehaviour
     }
 
     public void Drop () {
+        objectRigidbody.constraints = RigidbodyConstraints.None;
         this.objectGrabPointTransform = null;
         objectRigidbody.useGravity = true;
         objectRigidbody.constraints = RigidbodyConstraints.None;
