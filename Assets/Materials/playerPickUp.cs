@@ -94,7 +94,10 @@ public class PlayerPickUp : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "InfiniteJumpLevel")
         {
-            narrator.canThrow = true;
+            if (!narrator.finishedThrowing)
+            {
+                narrator.canThrow = true;
+            }
         }
     }
 }

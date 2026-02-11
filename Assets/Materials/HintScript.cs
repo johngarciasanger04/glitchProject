@@ -11,7 +11,7 @@ public class HintScript : MonoBehaviour
     public InputActionReference nextLineInput;
 
     float elapsedTime = 0f;
-    float hintTime = 60f;
+    float hintTime = 5f;
     bool measureTime = false;
 
     // Call to start measuring time in Update() method
@@ -36,85 +36,48 @@ public class HintScript : MonoBehaviour
         return elapsedTime;
     }
 
+    private string[] nothing =
+    {
+        "Yo aren't you not supposed to see this?"
+    };
+
     private string[] hintJump = {
         "Maybe you should...",
         "Jump on the box?",
-        "Like, hold it and jump. Idk bro I'm trash at coding."
+        "Like, hold it and jump. Idk bro we in this together!"
     };
+
     private string[] currentLines;
     private int currentIndex = 0;
 
     void Awake()
     {
-        currentLines = hintJump;
+        currentLines = nothing;
         currentIndex = 0;
-        ShowLine(currentIndex);
-    }
-
-    void OnEnable()
-    {
-        // Subscribe to input action
-        nextLineInput.action.performed += OnNextLine;
-        nextLineInput.action.Enable();
-    }
-
-    void OnDisable()
-    {
-        nextLineInput.action.performed -= OnNextLine;
-        nextLineInput.action.Disable();
     }
 
     void Update()
     {
-        if (narrator.canThrow == false)
+        // Start timer only once when throwing is finished
+        if (narrator.finishedThrowing && measureTime == false)
         {
+            ResetTimer();
             StartTimer();
         }
-        if(measureTime)
+
+        if (measureTime)
         {
             elapsedTime += Time.unscaledDeltaTime;
-        }
-        if (elapsedTime >= hintTime)
-        {
-            SwitchLines(hintJump);
-        }
-    }
 
-    private void OnNextLine(InputAction.CallbackContext ctx)
-    {
-        NextLine();
-    }
-
-    void ShowLine(int index)
-    {
-        if (index < currentLines.Length)
-        {
-            hintText.text = currentLines[index];
-            hintText.gameObject.SetActive(true);
-        }
-        else
-        {
-            hintText.gameObject.SetActive(false);
+            if (elapsedTime >= hintTime)
+            {
+                StopTimer();
+                narrator.SwitchLines(hintJump);
+            }
         }
     }
 
-    void NextLine()
-    {
-        currentIndex++;
-        ShowLine(currentIndex);
-    }
 
-    void SwitchLines(string[] newLines)
-    {
-        currentLines = newLines;
-        currentIndex = 0;
-        ShowLine(currentIndex);
-    }
-    public void HintJump()
-    {
-        currentLines = hintJump;
-        currentIndex = 0;
-        ShowLine(currentIndex);
-    }
+
 }
 

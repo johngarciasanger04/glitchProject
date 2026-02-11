@@ -27,10 +27,46 @@ public class IJLNarrator : MonoBehaviour
         "Just kidding! I know how to do that, at least."
     };
 
+    private string[] hintJump = {
+        "Maybe you should...",
+        "Jump on the box?",
+        "Like, hold it and jump. Idk bro we in this together!"
+    };
+
+
     private string[] currentLines;
     private int currentIndex = 0;
 
     public bool canThrow;
+    public bool finishedThrowing;
+
+
+    float elapsedTime = 0f;
+    float hintTime = 5f;
+    bool measureTime = false;
+    bool hintForJump = false; 
+
+    // Call to start measuring time in Update() method
+    void StartTimer()
+    {
+        measureTime = true;
+    }
+    // Call to stop measuring time in Update() method
+    void StopTimer()
+    {
+        measureTime = false;
+    }
+    // Call to reset timer
+    void ResetTimer()
+    {
+        elapsedTime = 0f;
+    }
+
+    // Call to get measured time
+    float GetMeasuredTime()
+    {
+        return elapsedTime;
+    }
 
     void Awake()
     {
@@ -57,8 +93,24 @@ public class IJLNarrator : MonoBehaviour
         if (canThrow)
         {
             SwitchLines(throwLines);
-            canThrow = false; // reset so it only switches once
-            
+            finishedThrowing = true; // made to disable canThrow
+            canThrow = false;
+        }
+        if (finishedThrowing && measureTime == false)
+        {
+            StartTimer();
+        }
+
+        if (measureTime)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+
+            if (elapsedTime >= hintTime && hintForJump == false)
+            {
+                StopTimer();
+                SwitchLines(hintJump);
+                hintForJump = true; 
+            }
         }
     }
 
@@ -86,7 +138,7 @@ public class IJLNarrator : MonoBehaviour
         ShowLine(currentIndex);
     }
 
-    void SwitchLines(string[] newLines)
+    public void SwitchLines(string[] newLines)
     {
         currentLines = newLines;
         currentIndex = 0;
