@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     Vector3 currentRunMovement;
     bool isMovementPressed;
     bool isRunPressed;
-    public float runMultiplier = 0.05f;
+    public float runMultiplier = 0.05f;  // Changed from 30.5f - that's way too fast!
 
     public InputActionReference sprintAction;
 
@@ -45,13 +45,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool onlyHorizontalPush = true;
     [SerializeField] float wallDamping = 0.6f;
 
-    //Momentum for platform despawn inheritance
-    private Vector3 extraMomentum = Vector3.zero;
-    public float momentumDecayRate = 5f; 
-
-    //Pause menu
-    public InputActionReference pauseAction;
-
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -67,7 +60,6 @@ public class PlayerController : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // Push objects logic
         var rb = hit.rigidbody;
         if (!rb || rb.isKinematic) return;
         if (rb.mass > maxPushMass) return;
@@ -104,9 +96,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!isJumping && characterController.isGrounded && isJumpPressed)
         {
-            // IMPORTANT: Detach from platform when jumping
-            transform.SetParent(null);
-            
             isJumping = true;
             currentMovement.y = initialJumpVelocity;
             currentRunMovement.y = initialJumpVelocity;
@@ -139,13 +128,11 @@ public class PlayerController : MonoBehaviour
     {
         if (characterController.isGrounded)
         {
+            // Small negative value to keep grounded
             if (currentMovement.y < 0)
                 currentMovement.y = groundedGravity;
             if (currentRunMovement.y < 0)
                 currentRunMovement.y = groundedGravity;
-
-            // Decay extra momentum on ground
-            extraMomentum = Vector3.Lerp(extraMomentum, Vector3.zero, Time.deltaTime * momentumDecayRate);
         }
         else
         {
@@ -159,46 +146,35 @@ public class PlayerController : MonoBehaviour
         isJumpPressed = context.ReadValueAsButton();
     }
 
-    public void AddMomentum(Vector3 momentum)
-    {
-        momentum.y = 0f;
-        extraMomentum += momentum;
-    }
-
     void Update()
     {
-        // 1) Safety: Ensure scale stays uniform if platform is scaled
-        if (transform.parent != null && transform.localScale != Vector3.one) {
-            transform.localScale = Vector3.one;
-        }
-
-        // 2) Handle gravity and jumping
+        // 1) Handle gravity and jumping
         handleGravity();
         handleJump();
 
-        // 3) Build horizontal movement relative to player facing
+        // 2) Build horizontal movement relative to player facing
         Vector3 forward = transform.forward;
         Vector3 right = transform.right;
         Vector3 horizontalMove = (forward * currentMovementInput.y + right * currentMovementInput.x).normalized;
 
-        // 4) Determine speed
+        // 3) Determine speed (walk or sprint)
         bool isSprinting = sprintAction.action.IsPressed() && isMovementPressed;
         float currentSpeed = isSprinting ? (moveSpeed * runMultiplier) : moveSpeed;
 
-        // 5) Apply speed + extra momentum
-        Vector3 velocity = horizontalMove * currentSpeed + extraMomentum;
+        // 4) Apply speed to horizontal movement
+        Vector3 velocity = horizontalMove * currentSpeed;
 
-        // 6) Preserve vertical velocity
+        // 5) Preserve vertical velocity from gravity/jump
         velocity.y = currentMovement.y;
 
-        // 7) Move the character
+        // 6) Move the character
         characterController.Move(velocity * Time.deltaTime);
 
-        // 8) Camera Zoom
+        // 7) Handle camera FOV zoom for sprint
         float targetFOV = (isSprinting && isMovementPressed) ? camZoomOut : camZoomNormal;
         theCam.fieldOfView = Mathf.Lerp(theCam.fieldOfView, targetFOV, Time.deltaTime * camZoomSpeed);
 
-        // 9) Camera look
+        // 8) Handle camera look
         Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
         lookInput.y = -lookInput.y;
         rotStore = rotStore + (lookInput * lookSpeed * Time.deltaTime);
@@ -206,14 +182,6 @@ public class PlayerController : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0f, rotStore.x, 0f);
         theCam.transform.localRotation = Quaternion.Euler(rotStore.y, 0f, 0f);
-
-        // 10) Ensure Camera stays with player
-        if (theCam != null && theCam.transform.parent != transform)
-        {
-            theCam.transform.SetParent(transform);
-            theCam.transform.localPosition = new Vector3(0, 0.6f, 0); 
-            theCam.transform.localRotation = Quaternion.identity;
-        }
     }
 
     private void OnEnable()
