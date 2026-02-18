@@ -10,7 +10,9 @@ public class PauseMenuController : MonoBehaviour
     
     [Header("Input")]
     public InputActionReference pauseAction;
-    
+
+    private Animator[] animator;
+    //private Animation[] allAnimations;
     private Rigidbody[] allRigidbodies;
     private Vector3[] savedVelocities;
     private Vector3[] savedAngularVelocities;
@@ -57,6 +59,8 @@ public class PauseMenuController : MonoBehaviour
         savedVelocities = new Vector3[allRigidbodies.Length];
         savedAngularVelocities = new Vector3[allRigidbodies.Length];
         wasKinematic = new bool[allRigidbodies.Length];
+        //allAnimations = FindObjectsOfType<Animation>();
+        animator = FindObjectsOfType<Animator>();
         
         // Freeze all physics
         for (int i = 0; i < allRigidbodies.Length; i++)
@@ -68,6 +72,12 @@ public class PauseMenuController : MonoBehaviour
             allRigidbodies[i].linearVelocity = Vector3.zero;
             allRigidbodies[i].angularVelocity = Vector3.zero;
             allRigidbodies[i].isKinematic = true;
+        }
+
+        // Freeze all animations
+        for (int i = 0; i < animator.Length; i++)
+        {
+            animator[i].enabled = false;
         }
         
         if (pauseMenuUI != null)
@@ -97,6 +107,12 @@ public class PauseMenuController : MonoBehaviour
                     allRigidbodies[i].angularVelocity = savedAngularVelocities[i];
                 }
             }
+        }
+
+        //Restore paused animations
+        for (int i = 0; i < animator.Length; i++)
+        {
+            animator[i].enabled = true;
         }
         
         if (pauseMenuUI != null)
