@@ -4,7 +4,7 @@ public class MovingPlatform : MonoBehaviour
 {
     [Header("Movement Settings")]
     public Vector3 moveDirection = Vector3.right; 
-    public float moveDistance = 5.0f;
+    public float moveDistance = 10f;
     public float speed = 2.0f;
     public float waitTime = 1.0f;
 
@@ -27,12 +27,12 @@ public class MovingPlatform : MonoBehaviour
     {
         if (PauseMenuController.isPaused) return;
 
-        // Move the platform
+        // Movement Logic
         if (Time.time >= nextMoveTime)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.fixedDeltaTime);
 
-            if (Vector3.Distance(transform.position, targetPos) < 0.01f)
+            if (Vector3.Distance(transform.position, targetPos) < 0.001f)
             {
                 movingToEnd = !movingToEnd;
                 targetPos = movingToEnd ? endPos : startPos;
@@ -40,13 +40,12 @@ public class MovingPlatform : MonoBehaviour
             }
         }
 
-        // --- SAFETY CHECK ---
-        // If the player is a child but somehow drifted too far (missed OnTriggerExit)
+        // SAFETY: If the player is still a child but drifted away, force detach
         if (playerTransform != null && playerTransform.parent == transform)
         {
+            // If the player is further than the platform's width + a small buffer
             float dist = Vector3.Distance(transform.position, playerTransform.position);
-            // If the player is more than 5 units away from the platform center, let them go!
-            if (dist > (moveDistance + 5f)) 
+            if (dist > 10f) 
             {
                 playerTransform.SetParent(null);
                 playerTransform = null;
@@ -82,9 +81,7 @@ public class MovingPlatform : MonoBehaviour
     {
         Vector3 previewStart = Application.isPlaying ? startPos : transform.position;
         Vector3 previewEnd = previewStart + (moveDirection.normalized * moveDistance);
-
         Gizmos.color = Color.cyan;
         Gizmos.DrawLine(previewStart, previewEnd);
-        Gizmos.DrawWireCube(previewEnd, transform.localScale);
     }
 }

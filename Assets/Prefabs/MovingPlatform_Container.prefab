@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694ed7c9a3adc9c478ec0e1860d49920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
-  startPoint: {fileID: 0}
-  endPoint: {fileID: 0}
+  moveDirection: {x: 1, y: 0, z: 0}
+  moveDistance: 5
   speed: 2
   waitTime: 1
