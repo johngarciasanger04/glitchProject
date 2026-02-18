@@ -7,12 +7,14 @@ public class ObjectGrabbable : MonoBehaviour
     public GameObject player;
     private Vector3 moveOffset = Vector3.zero;
 
-    private void Awake() {
+    private void Awake()
+    {
         objectRigidbody = GetComponent<Rigidbody>();
         objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         moveOffset = Vector3.zero;
     }
-    public void Grab (Transform objectGrabPointTransform) {
+    public void Grab(Transform objectGrabPointTransform)
+    {
         objectRigidbody.rotation = Quaternion.Euler(0, 0, 0);
         objectRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         this.objectGrabPointTransform = objectGrabPointTransform;
@@ -21,7 +23,8 @@ public class ObjectGrabbable : MonoBehaviour
         Debug.Log("object grabbed!");
     }
 
-    public void Drop () {
+    public void Drop()
+    {
         objectRigidbody.constraints = RigidbodyConstraints.None;
         this.objectGrabPointTransform = null;
         objectRigidbody.useGravity = true;
@@ -34,15 +37,12 @@ public class ObjectGrabbable : MonoBehaviour
         float moveSpeed = 2f;
         moveOffset += direction.normalized * moveSpeed * Time.deltaTime;
     }
-
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         if (objectGrabPointTransform != null)
         {
-            float lerpSpeed = 10f;
-            Vector3 targetPosition = objectGrabPointTransform.position + moveOffset;
-            Vector3 newPosition = Vector3.Lerp(objectRigidbody.position, targetPosition, Time.fixedDeltaTime * lerpSpeed);
-            objectRigidbody.MovePosition(newPosition);
+            objectRigidbody.MovePosition(objectGrabPointTransform.position);
+            objectRigidbody.MoveRotation(objectGrabPointTransform.rotation);
         }
     }
 }
+
