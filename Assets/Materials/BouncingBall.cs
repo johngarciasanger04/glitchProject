@@ -20,7 +20,7 @@ public class BouncingBall : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && canHoldBall == true)
+        if (Input.GetKeyDown(KeyCode.F) && canHoldBall == true && holding == false)
         {
             holding = true; 
             //Makes the GameObject "newParent" the parent of the GameObject "player".
@@ -39,7 +39,7 @@ public class BouncingBall : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G) && holding == true)
         {
-            transform.parent = null; // drops the object
+            DetachFromParent(); 
             sphereRigidbody.AddRelativeForce(Vector3.forward * thrust); // meant to throw the object 
         }
     } 
@@ -57,25 +57,29 @@ public class BouncingBall : MonoBehaviour
     {
         // Detaches the transform from its parent.
         transform.parent = null;
+        enter = false;
+        canHoldBall = false;
+        holding = false;
     }
 
     // Activate the Main function when Player enter the trigger area
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider box)
     {
-        if (other.CompareTag("Player"))
+        if (box.CompareTag("Player"))
         {
             enter = true;
         }
     }
 
     // Deactivate the Main function when Player exit the trigger area
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider box)
     {
-        if (other.CompareTag("Player"))
+        if (box.CompareTag("Player") && holding == false)
         {
             enter = false;
             canHoldBall = false; 
             transform.parent = null;
         }
     }
+
 }
