@@ -933,7 +933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_ProvidesContacts
@@ -942,6 +942,10 @@ PrefabInstance:
     - target: {fileID: 3580756177753758029, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_Name
       value: Moving Platform  (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644087313376015782, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9148207542743329810, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: path
@@ -1000,50 +1004,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 789113828727881395, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_Size.x
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_Size.z
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_Center.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3580756177753758029, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_Name
       value: Moving Platform  (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6904455166403039437, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_Size.y
-      value: 1
+    - target: {fileID: 3644087313376015782, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 6904455166403039437, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_Size.z
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 6904455166403039437, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9148207542743329810, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: path
-      value: 
-      objectReference: {fileID: 275350248}
     - target: {fileID: 9176179209456257573, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5
@@ -3064,29 +3036,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_Size.x
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_Size.z
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: m_Center.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 963948452054038768, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3580756177753758029, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_Name
       value: 'Moving Platform '
       objectReference: {fileID: 0}
-    - target: {fileID: 9148207542743329810, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
-      propertyPath: path
-      value: 
-      objectReference: {fileID: 1438621438}
+    - target: {fileID: 3644087313376015782, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9176179209456257573, guid: 64207d0712a2cf247bcd334240f16f32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
