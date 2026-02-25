@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 6474834814864962761}
   - component: {fileID: 963948452054038768}
   - component: {fileID: 789113828727881395}
+  - component: {fileID: 9148207542743329810}
   m_Layer: 0
   m_Name: 'Moving Platform '
   m_TagString: Untagged
@@ -207,3 +208,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9148207542743329810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580756177753758029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981ef10a0810b194abbca6d1b449f8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  path: {fileID: 0}
+  spd: 5
+  playerTag: Player
