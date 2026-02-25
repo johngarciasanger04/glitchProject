@@ -13,6 +13,8 @@ public class Collectible : MonoBehaviour
     [Header("Effects (Optional)")]
     public GameObject collectEffectPrefab; // Particle effect or something
     
+    private bool collected = false; // Prevent double collection
+    
     private void Update()
     {
         // Optional: rotate the collectible to make it obvious
@@ -24,6 +26,9 @@ public class Collectible : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        // Prevent collecting twice
+        if (collected) return;
+        
         // Check if player touched us
         if (other.CompareTag("Player"))
         {
@@ -33,11 +38,20 @@ public class Collectible : MonoBehaviour
     
     private void Collect(GameObject player)
     {
+        // Mark as collected immediately
+        collected = true;
+        
         // Add points to player
         PlayerStats stats = player.GetComponent<PlayerStats>();
         if (stats != null)
         {
             stats.AddPoints(pointValue);
+        }
+        
+        // Notify level manager
+        if (LevelManager.instance != null)
+        {
+            LevelManager.instance.CollectibleCollected();
         }
         
         // Play sound if we have one
