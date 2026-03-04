@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     PlayerInputActions playerInput;
     CharacterController characterController;
 
+    [Header("2D Mode")]
+    public bool disable2DLook = false; // Add this near the top with other public vars
     //looking
     public InputActionReference lookAction;
     public float moveSpeed = 2.5f;
