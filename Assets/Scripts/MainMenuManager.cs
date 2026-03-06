@@ -100,6 +100,14 @@ public class MainMenuManager : MonoBehaviour
 
         SceneManager.LoadScene(level1ToLoad);
     }
+    public void OnLevel2Button()
+    {
+        Debug.Log("Level 2 button clicked");
+        if (debugging)
+            Debug.Log("Loading level: " + level2ToLoad);
+
+        SceneManager.LoadScene(level2ToLoad);
+    }
 
     private void QuitGame()
     {
