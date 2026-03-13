@@ -7,9 +7,6 @@ public class PlayerInventory : MonoBehaviour
     public Pickupable currentItem;
     public Camera playerCamera;
     public InputActionReference dropAction;
-    public PlayerController playerController; // Add reference to player controller
-
-    private Vector3 saved3DRotation;
 
     void Update()
     {
@@ -24,8 +21,15 @@ public class PlayerInventory : MonoBehaviour
         currentItem = item;
         item.isPickedUp = true;
 
-        item.transform.SetParent(holdPosition);
-        item.transform.localPosition = Vector3.zero;
+        // Disable animator if it has one
+        Animator anim = item.GetComponent<Animator>();
+        if (anim != null) anim.enabled = false;
+
+        // DON'T parent to holdPosition, parent directly to camera
+        item.transform.SetParent(playerCamera.transform);
+        
+        // Position in front of camera (local to camera)
+        item.transform.localPosition = new Vector3(0, 0, 2); // 2 units in front of camera
         item.transform.localRotation = Quaternion.identity;
 
         Rigidbody rb = item.GetComponent<Rigidbody>();
@@ -43,9 +47,22 @@ public class PlayerInventory : MonoBehaviour
     {
         if (currentItem == null) return;
 
+        // Save world position BEFORE unparenting
+        Vector3 itemWorldPos = currentItem.transform.position;
+
+        // Unparent
         currentItem.transform.SetParent(null);
+        
+        // Restore world position
+        currentItem.transform.position = itemWorldPos;
+        
         currentItem.isPickedUp = false;
 
+        // Re-enable animator
+        Animator anim = currentItem.GetComponent<Animator>();
+        if (anim != null) anim.enabled = true;
+
+        // Re-enable physics
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();
         if (rb != null) rb.isKinematic = false;
 
@@ -54,6 +71,7 @@ public class PlayerInventory : MonoBehaviour
 
         currentItem = null;
 
+        // Switch back to 3D
         SwitchTo3D();
 
         Debug.Log("Dropped item");
@@ -63,20 +81,18 @@ public class PlayerInventory : MonoBehaviour
     {
         if (playerCamera != null)
         {
-            // Save current rotation
-            saved3DRotation = playerCamera.transform.localEulerAngles;
-            
             playerCamera.orthographic = true;
-            playerCamera.orthographicSize = 5;
+            playerCamera.orthographicSize = 10;
             
-            // Force side view
+            // Side view
             playerCamera.transform.localEulerAngles = new Vector3(0, 90, 0);
             
+            // Move camera to the side
+            playerCamera.transform.localPosition = new Vector3(-10, 0.6f, 0);
+            
             // Disable look controls
-            if (playerController != null)
-            {
-                playerController.enabled = false;
-            }
+            PlayerController pc = GetComponent<PlayerController>();
+            if (pc != null) pc.disable2DLook = true;
             
             Debug.Log("Switched to 2D");
         }
@@ -86,16 +102,20 @@ public class PlayerInventory : MonoBehaviour
     {
         if (playerCamera != null)
         {
+            // Save player world position
+            Vector3 playerWorldPos = transform.position;
+            
             playerCamera.orthographic = false;
             
-            // Restore rotation
-            playerCamera.transform.localEulerAngles = saved3DRotation;
+            // Reset camera position
+            playerCamera.transform.localPosition = new Vector3(0, 0.6f, 0);
+            
+            // Restore player position
+            transform.position = playerWorldPos;
             
             // Re-enable look controls
-            if (playerController != null)
-            {
-                playerController.enabled = true;
-            }
+            PlayerController pc = GetComponent<PlayerController>();
+            if (pc != null) pc.disable2DLook = false;
             
             Debug.Log("Switched to 3D");
         }
