@@ -134,10 +134,7 @@ GameObject:
   - component: {fileID: 55378797}
   - component: {fileID: 55378796}
   - component: {fileID: 55378795}
-<<<<<<< HEAD
-=======
   - component: {fileID: 55378803}
->>>>>>> door-ball
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -160,10 +157,7 @@ MonoBehaviour:
   CameraTransform: {fileID: 389679686}
   objectGrabPointTransform: {fileID: 785697729}
   pickUpLayerMask:
-<<<<<<< HEAD
-=======
     serializedVersion: 2
->>>>>>> door-ball
     m_Bits: 4294967295
   narrator: {fileID: 836990194}
   pickUpInput: {fileID: 642140856183202690, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
@@ -174,10 +168,6 @@ MonoBehaviour:
   moveRight: {fileID: -7413178470683796442, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
   moveForward: {fileID: -3687512532958951212, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
   moveBack: {fileID: 6188617027960994617, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
-<<<<<<< HEAD
-  objectGrabbable: {fileID: 0}
-=======
->>>>>>> door-ball
 --- !u!114 &55378796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,10 +193,6 @@ MonoBehaviour:
   maxPushMass: 200
   onlyHorizontalPush: 1
   wallDamping: 0.6
-<<<<<<< HEAD
-  pauseAction: {fileID: 0}
-=======
->>>>>>> door-ball
 --- !u!143 &55378797
 CharacterController:
   m_ObjectHideFlags: 0
@@ -239,11 +225,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55378794}
-<<<<<<< HEAD
-  m_Material: {fileID: 0}
-=======
   m_Material: {fileID: 13400000, guid: c4dd5eeac1bcfd34ab6ee4f879cfbf80, type: 2}
->>>>>>> door-ball
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -330,10 +312,6 @@ Transform:
   m_Children:
   - {fileID: 389679686}
   - {fileID: 836990193}
-<<<<<<< HEAD
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
   - {fileID: 1021110490}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -349,7 +327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ae18e4f991c8c4fb603d4fd0da0fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
->>>>>>> door-ball
 --- !u!1 &98546281
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,19 +432,13 @@ Transform:
   m_GameObject: {fileID: 98546281}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 0.108486176, y: 3.2301521, z: 66.207245}
-=======
   m_LocalPosition: {x: 0.01, y: 3.23, z: 65.17}
->>>>>>> door-ball
   m_LocalScale: {x: 20.918468, y: 7.4603043, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 372620159}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &180147225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7179597639047446047, guid: 841e7e8a9bf050543868f41026f0989a, type: 3}
@@ -615,7 +586,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1559495249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> door-ball
 --- !u!1 &287706894
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,11 +678,7 @@ Transform:
   m_GameObject: {fileID: 287706894}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-=======
   m_LocalPosition: {x: -0.000000022351742, y: 3, z: 0.000000033527613}
->>>>>>> door-ball
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1132,8 +1098,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548577141}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
-=======
 --- !u!1 &563992785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,7 +1320,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
->>>>>>> door-ball
 --- !u!1 &734702675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,21 +1535,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772978387}
   serializedVersion: 2
-<<<<<<< HEAD
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.981979, y: 6.21896, z: 50.653202}
-  m_LocalScale: {x: 1.2624654, y: 13.43792, z: 30.108091}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-=======
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2624654, y: 13.43792, z: 30.108091}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2129963324}
->>>>>>> door-ball
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &785697728
 GameObject:
@@ -1665,28 +1619,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   narratorText: {fileID: 548577143}
   nextLineInput: {fileID: -8382444002826243739, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
-<<<<<<< HEAD
-  introLines:
-  - Welcome in!
-  - I see you finally got to this level.
-  - There's no bugs, I promise, I just need you to throw the object to the red button.
-  throwLines:
-  - Oh, you can't throw it?
-  - ...how else are you gonna get over the wall?
-  - Maybe try jumping...on what? I don't know.
-  firstJump:
-  - So that's...also intentional! I'm sure you can get through the levels if you
-    just do that.
-  - Jump to your hearts content. You can die though, so be careful. I didn't program
-    in a checkpoint...
-  - Just kidding! I know how to do that, at least.
-  currentLines: []
-  currentIndex: 0
-  canThrow: 0
-=======
   canThrow: 0
   finishedThrowing: 0
->>>>>>> door-ball
 --- !u!1 &945971406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,8 +1732,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945971406}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &984271112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,7 +2004,6 @@ MonoBehaviour:
   hintText: {fileID: 0}
   narrator: {fileID: 0}
   nextLineInput: {fileID: 0}
->>>>>>> door-ball
 --- !u!1 &1085253118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,20 +2109,12 @@ Transform:
   m_GameObject: {fileID: 1085253118}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.3565413, z: -0, w: 0.93427956}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -9.813831, y: 9.2661, z: 90.325836}
-=======
   m_LocalPosition: {x: 0, y: 0, z: 0}
->>>>>>> door-ball
   m_LocalScale: {x: 10.845154, y: 6.4415736, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1879019741}
-<<<<<<< HEAD
-  m_Father: {fileID: 0}
-=======
   m_Father: {fileID: 1420818060}
->>>>>>> door-ball
   m_LocalEulerAnglesHint: {x: 0, y: -41.776, z: 0}
 --- !u!1 &1119850625
 GameObject:
@@ -2297,15 +2220,6 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119850625}
   serializedVersion: 2
-<<<<<<< HEAD
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2, y: 10.46, z: 115.7}
-  m_LocalScale: {x: -6.396765, y: 1, z: 30.93819}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -6.396765, y: 1, z: 30.93819}
@@ -2344,7 +2258,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 984271113}
   m_LocalEulerAnglesHint: {x: -98.944, y: 59.199997, z: -77.84799}
->>>>>>> door-ball
 --- !u!1 &1255708913
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,14 +2294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f8e4468833c9b4ab5baade9154e4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-<<<<<<< HEAD
-  objectRigidbody: {fileID: 0}
-  objectGrabPointTransform: {fileID: 0}
   player: {fileID: 55378794}
-  moveOffset: {x: 0, y: 0, z: 0}
-=======
-  player: {fileID: 55378794}
->>>>>>> door-ball
 --- !u!114 &1255708915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2401,22 +2307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0aee06c0be4bf4da019e024013f580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoxPickUp
-<<<<<<< HEAD
-  boxRigidbody: {fileID: 0}
   player: {fileID: 0}
   box: {fileID: 1255708913}
   thrust: 0
-  enter: 0
-  holding: 0
-  canHoldBall: 0
-  x: 0
-  y: 0
-  z: 0
-=======
-  player: {fileID: 0}
-  box: {fileID: 1255708913}
-  thrust: 0
->>>>>>> door-ball
 --- !u!135 &1255708916
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2574,8 +2467,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1001 &1363431372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2664,7 +2555,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 180147240}
   m_SourcePrefab: {fileID: 100100000, guid: 841e7e8a9bf050543868f41026f0989a, type: 3}
->>>>>>> door-ball
 --- !u!1 &1415583710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,15 +2660,6 @@ Transform:
   m_GameObject: {fileID: 1415583710}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.6729576, z: -0, w: 0.7396811}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 15.5, y: 9.2661, z: 90.32395}
-  m_LocalScale: {x: 10.845154, y: 6.4415736, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 945971407}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 84.591, z: 0}
-=======
   m_LocalPosition: {x: 25.313831, y: 0, z: -0.0018844604}
   m_LocalScale: {x: 10.845153, y: 6.4415736, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3074,7 +2955,6 @@ Transform:
   - {fileID: 1003440833}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> door-ball
 --- !u!1 &1497992393
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,8 +3057,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1559495248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3214,7 +3092,6 @@ Transform:
   - {fileID: 563992789}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> door-ball
 --- !u!1 &1766872506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,10 +3535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   narrator: {fileID: 836990194}
-<<<<<<< HEAD
-  firstJumpA: 0
-=======
->>>>>>> door-ball
 --- !u!4 &1886946160
 Transform:
   m_ObjectHideFlags: 0
@@ -3711,11 +3584,7 @@ GameObject:
   - component: {fileID: 1901956489}
   - component: {fileID: 1901956488}
   m_Layer: 0
-<<<<<<< HEAD
-  m_Name: FinishGround
-=======
   m_Name: EasterEgg
->>>>>>> door-ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3813,8 +3682,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1930991276
 GameObject:
   m_ObjectHideFlags: 0
@@ -3864,7 +3731,6 @@ Transform:
   - {fileID: 180147246}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> door-ball
 --- !u!1 &2022597058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3977,8 +3843,6 @@ Transform:
   - {fileID: 2135560441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &2129963323
 GameObject:
   m_ObjectHideFlags: 0
@@ -4012,7 +3876,6 @@ Transform:
   - {fileID: 772978391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> door-ball
 --- !u!1 &2134010767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4117,21 +3980,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134010767}
   serializedVersion: 2
-<<<<<<< HEAD
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.981979, y: 6.21896, z: 50.746803}
-  m_LocalScale: {x: 1.2624654, y: 13.43792, z: 30.108091}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-=======
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -21.963959, y: 0, z: 0.09360123}
   m_LocalScale: {x: 1.2624654, y: 13.43792, z: 30.108091}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2129963324}
->>>>>>> door-ball
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135560437
 GameObject:
@@ -4251,11 +4105,7 @@ SceneRoots:
   - {fileID: 287706896}
   - {fileID: 734702679}
   - {fileID: 1777400844}
-<<<<<<< HEAD
-  - {fileID: 1119850629}
-=======
   - {fileID: 1559495249}
->>>>>>> door-ball
   - {fileID: 1766872510}
   - {fileID: 1901956491}
   - {fileID: 55378801}
@@ -4263,14 +4113,6 @@ SceneRoots:
   - {fileID: 1840493127}
   - {fileID: 2022597062}
   - {fileID: 98546285}
-<<<<<<< HEAD
-  - {fileID: 1415583714}
-  - {fileID: 1085253122}
-  - {fileID: 1255708922}
-  - {fileID: 1886946160}
-  - {fileID: 2134010771}
-  - {fileID: 772978391}
-=======
   - {fileID: 1420818060}
   - {fileID: 1255708922}
   - {fileID: 1886946160}
@@ -4278,4 +4120,3 @@ SceneRoots:
   - {fileID: 652619214}
   - {fileID: 1496611734}
   - {fileID: 1930991278}
->>>>>>> door-ball
