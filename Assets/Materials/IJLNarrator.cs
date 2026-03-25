@@ -33,7 +33,25 @@ public class IJLNarrator : MonoBehaviour
         "Like, hold it and jump. Idk bro we in this together!"
     };
 
+    private string[] checkpointP = {
+        "Wow, you made it! I uh...didn't expect you'd do it like that...",
+        "Which isn't really surprising as I did not expect this at all.",
+        "Good thing I programmed in a checkpoint!",
+        "You should be able to do this next part with ease! Good luck!"
 
+   };
+
+    private string[] checkpointC =
+    {
+
+    };
+
+    private string[] beforeFinish =
+    {
+        "You did it! Good job, buddy!",
+        "Me and you make a great team...",
+        "We BOTH earned this victory."
+    };
     private string[] currentLines;
     private int currentIndex = 0;
 
@@ -150,4 +168,16 @@ public class IJLNarrator : MonoBehaviour
             currentIndex = 0;
             ShowLine(currentIndex);
         }
+    public void checkpointPA ()
+    {
+        currentLines = checkpointP;
+        currentIndex = 0;
+        ShowLine(currentIndex);
+    }
+    public void beforeFinishText()
+    {
+        currentLines = beforeFinish;
+        currentIndex = 0;
+        ShowLine(currentIndex);
+    }
 }
