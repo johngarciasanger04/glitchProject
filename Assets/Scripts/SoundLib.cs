@@ -1,0 +1,30 @@
+using UnityEngine;
+
+[System.Serializable]
+public struct SoundEffect
+{
+    public string groupID;
+    public AudioClip[] clips;
+}
+
+public class SoundLib : MonoBehaviour
+{
+    public SoundEffect[] soundEffects;
+
+    public AudioClip getClipFromName(string name)
+    {
+        foreach (var soundEffect in soundEffects)
+        {
+            if (soundEffect.groupID == name)
+            {
+                if (soundEffect.clips == null || soundEffect.clips.Length == 0)
+                    return null;
+
+                return soundEffect.clips[
+                    Random.Range(0, soundEffect.clips.Length)
+                ];
+            }
+        }
+        return null;
+    }
+}
