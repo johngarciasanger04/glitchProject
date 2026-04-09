@@ -46,7 +46,7 @@ public class ProjectileLauncher : MonoBehaviour
         Gizmos.color = Color.blueViolet; // color of line
 
         Vector3 start = launchPoint.position;
-        Vector3 direction = launchPoint.forward; // change to .up or .right if needed
+        Vector3 direction = launchPoint.forward;
         Vector3 end = start + direction;
 
         Gizmos.DrawLine(start, end);
