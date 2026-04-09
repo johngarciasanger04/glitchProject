@@ -7,6 +7,21 @@ public class PlayerInventory : MonoBehaviour
     public Pickupable currentItem;
     public Camera playerCamera;
     public InputActionReference dropAction;
+    private float saved3DRotation;
+
+    public AudioSource ambient3D;
+    public AudioSource ambient2D;
+    
+    [Header("Audio")]
+    public AudioClip pickupSound;
+    public AudioClip dropSound;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        // Grab the AudioSource attached to the Player
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -25,22 +40,27 @@ public class PlayerInventory : MonoBehaviour
         Animator anim = item.GetComponent<Animator>();
         if (anim != null) anim.enabled = false;
 
-        // DON'T parent to holdPosition, parent directly to camera
-        item.transform.SetParent(playerCamera.transform);
-        
-        // Position in front of camera (local to camera)
-        item.transform.localPosition = new Vector3(0, 0, 2); // 2 units in front of camera
-        item.transform.localRotation = Quaternion.identity;
-
         Rigidbody rb = item.GetComponent<Rigidbody>();
         if (rb != null) rb.isKinematic = true;
 
         Collider col = item.GetComponent<Collider>();
         if (col != null) col.enabled = false;
 
+        // SWITCH TO 2D FIRST
         SwitchTo2D();
 
+        // Parent to PLAYER, not camera
+        item.transform.SetParent(transform); // transform = player
+        item.transform.localPosition = new Vector3(0, 1, 2); // In front of player
+        item.transform.localRotation = Quaternion.identity;
+
         Debug.Log("Picked up: " + item.name);
+
+        // Play Pickup Sound
+        if (audioSource != null && pickupSound != null)
+        {
+            audioSource.PlayOneShot(pickupSound);
+        }
     }
 
     void DropItem()
@@ -75,12 +95,24 @@ public class PlayerInventory : MonoBehaviour
         SwitchTo3D();
 
         Debug.Log("Dropped item");
+
+        // Play Drop Sound
+        if (audioSource != null && dropSound != null)
+        {
+            audioSource.PlayOneShot(dropSound);
+        }
     }
 
     void SwitchTo2D()
     {
         if (playerCamera != null)
         {
+            // Save current rotation
+            saved3DRotation = transform.eulerAngles.y;
+            
+            // Lock player to face one direction (0, 90, 180, or 270 degrees)
+            transform.eulerAngles = new Vector3(0, 0, 0); // Face forward in world space
+            
             playerCamera.orthographic = true;
             playerCamera.orthographicSize = 10;
             
@@ -93,6 +125,10 @@ public class PlayerInventory : MonoBehaviour
             // Disable look controls
             PlayerController pc = GetComponent<PlayerController>();
             if (pc != null) pc.disable2DLook = true;
+
+            // Switch ambient
+            if (ambient3D != null) ambient3D.Stop();
+            if (ambient2D != null) ambient2D.Play();
             
             Debug.Log("Switched to 2D");
         }
@@ -102,7 +138,6 @@ public class PlayerInventory : MonoBehaviour
     {
         if (playerCamera != null)
         {
-            // Save player world position
             Vector3 playerWorldPos = transform.position;
             
             playerCamera.orthographic = false;
@@ -110,12 +145,18 @@ public class PlayerInventory : MonoBehaviour
             // Reset camera position
             playerCamera.transform.localPosition = new Vector3(0, 0.6f, 0);
             
-            // Restore player position
+            // Restore player rotation
+            transform.eulerAngles = new Vector3(0, saved3DRotation, 0);
+            
             transform.position = playerWorldPos;
             
             // Re-enable look controls
             PlayerController pc = GetComponent<PlayerController>();
             if (pc != null) pc.disable2DLook = false;
+
+            // Switch ambient
+            if (ambient2D != null) ambient2D.Stop();
+            if (ambient3D != null) ambient3D.Play();
             
             Debug.Log("Switched to 3D");
         }
