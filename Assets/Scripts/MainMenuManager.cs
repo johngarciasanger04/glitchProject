@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenuManager : MonoBehaviour
 {
     public static MainMenuManager instance;
+
+    public AudioMixer audioMixer;
 
     [Header("Setup")]
     [SerializeField] private string level1ToLoad;
@@ -35,13 +38,39 @@ public class MainMenuManager : MonoBehaviour
         levelsUI.SetActive(false);
         settingsUI.SetActive(false);
         creditsUI.SetActive(false);
+        MusicManager.Instance.PlayMusic("MainMenuTheme");
 
+    }
+
+    public void UpdateMasterVolume(float volume)
+    {
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 20);
+    }
+
+    public void UpdateMusicVolume(float volume)
+    {
+        if (volume <= 0.0001f)
+        audioMixer.SetFloat("MusicVolume", -80f);
+        else
+        audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20f);
+    }
+
+    public void UpdateSFXVolume(float volume)
+    {
+        audioMixer.SetFloat("SFXVolume", Mathf.Log10(Mathf.Max(volume, 0.0001f)) * 20);
+    }
+    public void saveSettings()
+    {
+        PlayerPrefs.Save();
+        Debug.Log("Settings saved");
     }
 
     // Start Game Button
     public void OnStartButton()
     {
         Debug.Log("Start button clicked");
+        //playsound
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
         if (debugging)
             Debug.Log("Loading level: " + level1ToLoad);
 
@@ -53,6 +82,7 @@ public class MainMenuManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         levelsUI.SetActive(true);
         Debug.Log("Levels button clicked");
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
     }
     // Settings Button
     public void OnSettingsButton()
@@ -60,6 +90,7 @@ public class MainMenuManager : MonoBehaviour
         mainMenuUI.SetActive(false);
         settingsUI.SetActive(true);
         Debug.Log("Settings button clicked");
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
     }
     // Credits Button
     public void OnCreditsButton()
@@ -68,10 +99,12 @@ public class MainMenuManager : MonoBehaviour
         settingsUI.SetActive(false);
         creditsUI.SetActive(true);
         Debug.Log("Credits button clicked");
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
     }
     public void OnExitButton()
     {
         Debug.Log("Exit button clicked");
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
         QuitGame();
     }
     public void OnBackToMainMenuFromLevels()
@@ -79,18 +112,21 @@ public class MainMenuManager : MonoBehaviour
         levelsUI.SetActive(false);
         mainMenuUI.SetActive(true);
         Debug.Log("Back to Main Menu from Levels clicked");
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
     }
     public void OnBackToMainMenuFromSettings()
     {
         settingsUI.SetActive(false);
         mainMenuUI.SetActive(true);
         Debug.Log("Back to Main Menu from Settings clicked");
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
     }
     public void OnBacktoSettingsfromCredits()
     {
         creditsUI.SetActive(false);
         settingsUI.SetActive(true);
         Debug.Log("Back to Settings from Credits clicked");
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
     }
     public void OnLevel1Button()
     {
@@ -98,7 +134,9 @@ public class MainMenuManager : MonoBehaviour
         if (debugging)
             Debug.Log("Loading level: " + level1ToLoad);
 
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
         SceneManager.LoadScene(level1ToLoad);
+        
     }
     public void OnLevel2Button()
     {
@@ -106,6 +144,7 @@ public class MainMenuManager : MonoBehaviour
         if (debugging)
             Debug.Log("Loading level: " + level2ToLoad);
 
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
         SceneManager.LoadScene(level2ToLoad);
     }
     public void OnLevel3Button()
@@ -113,6 +152,8 @@ public class MainMenuManager : MonoBehaviour
         Debug.Log("Level 3 button clicked");
         if (debugging)
             Debug.Log("Loading level: " + level3ToLoad);
+
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
 
         SceneManager.LoadScene(level3ToLoad);
     }
