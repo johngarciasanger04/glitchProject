@@ -1,12 +1,12 @@
 ﻿<Solution>
+  <Project Path="ParallelCascades.ProceduralCelestialBodyMaterials.Runtime.csproj" />
   <Project Path="ParallelCascades.ProceduralShaders.Editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="ParallelCascades.ProceduralCelestialBodyMaterials.Editor.csproj" />
   <Project Path="ParallelCascades.ProceduralShaders.Runtime.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
-  <Project Path="ParallelCascades.ProceduralCelestialBodyMaterials.Runtime.csproj" />
-  <Project Path="ParallelCascades.Common.Runtime.csproj" />
   <Project Path="ParallelCascades.Common.Editor.csproj" />
+  <Project Path="ParallelCascades.Common.Runtime.csproj" />
   <Project Path="ParallelCascades.Common.Rendering.csproj" />
   <Project Path="ParallelCascades.ProceduralCelestialBodyMaterials.PostProcessing.csproj" />
 </Solution>

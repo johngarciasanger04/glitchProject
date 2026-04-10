@@ -1860,11 +1860,11 @@ AudioSource:
   m_GameObject: {fileID: 487562127}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7323666676691374217, guid: 0717dd20904828f47aac9fe5cec24009, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.577
+  m_Volume: 0.163
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2443,7 +2443,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: a23492734b26505479aaf04533c60030, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.677
   m_Pitch: 1
@@ -2834,11 +2834,11 @@ AudioSource:
   m_GameObject: {fileID: 1024217264}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9163195813693543408, guid: 0717dd20904828f47aac9fe5cec24009, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.802
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5051,10 +5051,6 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   playerCamera: {fileID: 961739752}
   dropAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  ambient3D: {fileID: 1332919942}
-  ambient2D: {fileID: 926480011}
-  pickupSound: {fileID: 0}
-  dropSound: {fileID: 0}
 --- !u!82 &8787496206054008587
 AudioSource:
   m_ObjectHideFlags: 0

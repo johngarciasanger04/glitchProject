@@ -9,14 +9,6 @@ public class PlayerInventory : MonoBehaviour
     public InputActionReference dropAction;
     private float saved3DRotation;
 
-    public AudioSource ambient3D;
-    public AudioSource ambient2D;
-    
-    [Header("Audio")]
-    public AudioClip pickupSound;
-    public AudioClip dropSound;
-    private AudioSource audioSource;
-
     void Start()
     {
         // Grab the AudioSource attached to the Player
