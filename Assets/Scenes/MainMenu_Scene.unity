@@ -929,11 +929,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a129aa15998604d947da177e8d89f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  levelToLoad: SampleScene
+  audioMixer: {fileID: 0}
+  level1ToLoad: 
+  level2ToLoad: 
+  level3ToLoad: Perspective_Scene
+  level4ToLoad: 
+  level5ToLoad: 
   debugging: 1
   mainMenuUI: {fileID: 782380198}
   levelsUI: {fileID: 1624861662}
   settingsUI: {fileID: 752272950}
+  creditsUI: {fileID: 0}
 --- !u!1 &931612514
 GameObject:
   m_ObjectHideFlags: 0
