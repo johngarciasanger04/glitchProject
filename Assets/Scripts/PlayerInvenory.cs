@@ -20,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
     void Start()
     {
         // Grab the AudioSource attached to the Player
-        audioSource = GetComponent<AudioSource>();
+        MusicManager.Instance.PlayMusic("ambient3D");
     }
 
     void Update()
@@ -57,10 +57,7 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log("Picked up: " + item.name);
 
         // Play Pickup Sound
-        if (audioSource != null && pickupSound != null)
-        {
-            audioSource.PlayOneShot(pickupSound);
-        }
+        SoundsManager.Instance.PlaySound2D("pickupSound");
     }
 
     void DropItem()
@@ -97,10 +94,8 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log("Dropped item");
 
         // Play Drop Sound
-        if (audioSource != null && dropSound != null)
-        {
-            audioSource.PlayOneShot(dropSound);
-        }
+        SoundsManager.Instance.PlaySound2D("dropSound");
+
     }
 
     void SwitchTo2D()
@@ -127,8 +122,11 @@ public class PlayerInventory : MonoBehaviour
             if (pc != null) pc.disable2DLook = true;
 
             // Switch ambient
-            if (ambient3D != null) ambient3D.Stop();
-            if (ambient2D != null) ambient2D.Play();
+            MusicManager.Instance.PlayMusic("ambient2D");
+
+
+            //if (ambient3D != null) ambient3D.Stop();
+            //if (ambient2D != null) ambient2D.Play();
             
             Debug.Log("Switched to 2D");
         }
@@ -155,8 +153,11 @@ public class PlayerInventory : MonoBehaviour
             if (pc != null) pc.disable2DLook = false;
 
             // Switch ambient
-            if (ambient2D != null) ambient2D.Stop();
-            if (ambient3D != null) ambient3D.Play();
+
+            MusicManager.Instance.PlayMusic("ambient3D");
+
+           // if (ambient2D != null) ambient2D.Stop();
+           // if (ambient3D != null) ambient3D.Play();
             
             Debug.Log("Switched to 3D");
         }
