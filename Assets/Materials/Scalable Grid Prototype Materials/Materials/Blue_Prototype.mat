@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Blue_Prototype
   m_Shader: {fileID: -6465566751694194690, guid: 74686ab863fe0dc4598560e65eb847eb, type: 3}
-  m_Parent: {fileID: 2100000, guid: 88b3961b9a9bd064ebcc2f4cbf42faf0, type: 2}
+  m_Parent: {fileID: 2100000, guid: aa60dc0f504f8eb41974f50e1528f594, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []

@@ -354,7 +354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &26385871
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &37171967
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &70059540
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &128954308
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,7 +805,6 @@ MonoBehaviour:
   menuSceneName: MainMenu_Scene
   delayBeforeMenu: 2
   levelCompleteUI: {fileID: 0}
-  collectiblesRemaining: 0
 --- !u!4 &128954310
 Transform:
   m_ObjectHideFlags: 0
@@ -1076,7 +1071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &237042679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &249169523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &271134839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,8 +1711,6 @@ MonoBehaviour:
   - {fileID: 1694967574}
   - {fileID: 1001408397}
   - {fileID: 1666114}
-  originalPos: {x: 0, y: 0, z: 0}
-  originalRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &289607846
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3710,7 +3700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &1517489360
 GameObject:
   m_ObjectHideFlags: 0
@@ -4191,7 +4180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &1677522625
 GameObject:
   m_ObjectHideFlags: 0
@@ -4316,7 +4304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &1694967574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,7 +4969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1 &2007465824 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1874040403502765737, guid: 59ba4afee4556564ba050c85011a664b, type: 3}
@@ -5112,7 +5098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05f1bca72067344c9988fce9e4e8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TwoDOnlyPlatform
-  platformRenderer: {fileID: 0}
 --- !u!1001 &2124336788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5298,6 +5283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6663783f0fec24d49a986980df8822d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  disable2DLook: 0
   lookAction: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   moveSpeed: 8
   lookSpeed: 30
@@ -5307,6 +5293,8 @@ MonoBehaviour:
   camZoomSpeed: 4
   runMultiplier: 2
   sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  maxJumpHeight: 1
+  maxJumpTime: 0.5
   pushStrength: 1
   maxPushMass: 200
   onlyHorizontalPush: 1
@@ -5422,7 +5410,6 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   playerCamera: {fileID: 961739752}
   dropAction: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  saved3DRotation: 0
 --- !u!82 &8787496206054008587
 AudioSource:
   m_ObjectHideFlags: 0

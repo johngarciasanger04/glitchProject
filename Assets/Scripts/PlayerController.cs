@@ -6,9 +6,12 @@ public class PlayerController : MonoBehaviour
     PlayerInputActions playerInput;
     CharacterController characterController;
 
+    [Header("2D Mode")]
+    public bool disable2DLook = false;
+    
     //looking
     public InputActionReference lookAction;
-    public float moveSpeed = 2.5f;
+    public float moveSpeed = 8f;
 
     private Vector2 rotStore;
     public float lookSpeed;
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour
     Vector3 currentRunMovement;
     bool isMovementPressed;
     bool isRunPressed;
-    public float runMultiplier = 0.05f;  // Changed from 30.5f - that's way too fast!
+    public float runMultiplier = 2f;
 
     public InputActionReference sprintAction;
 
@@ -35,8 +38,8 @@ public class PlayerController : MonoBehaviour
     //jumping
     bool isJumpPressed = false;
     float initialJumpVelocity;
-    float maxJumpHeight = 1.0f;
-    float maxJumpTime = 0.5f;
+    public float maxJumpHeight = 1.0f;
+    public float maxJumpTime = 0.5f;
     bool isJumping = false;
 
     [Header("Push Settings")]
@@ -128,7 +131,6 @@ public class PlayerController : MonoBehaviour
     {
         if (characterController.isGrounded)
         {
-            // Small negative value to keep grounded
             if (currentMovement.y < 0)
                 currentMovement.y = groundedGravity;
             if (currentRunMovement.y < 0)
@@ -155,7 +157,23 @@ public class PlayerController : MonoBehaviour
         // 2) Build horizontal movement relative to player facing
         Vector3 forward = transform.forward;
         Vector3 right = transform.right;
-        Vector3 horizontalMove = (forward * currentMovementInput.y + right * currentMovementInput.x).normalized;
+
+        // Check if in 2D mode
+        PlayerInventory inventory = GetComponent<PlayerInventory>();
+        bool in2D = (inventory != null && inventory.currentItem != null);
+
+        Vector3 horizontalMove;
+        if (in2D)
+        {
+            // In 2D: W/S = left/right, A/D = left/right (ignore one axis)
+            // Use world space directions instead of player rotation
+            horizontalMove = (Vector3.forward * -(currentMovementInput.x + currentMovementInput.y)).normalized;
+        }
+        else
+        {
+            // Normal 3D movement
+            horizontalMove = (forward * currentMovementInput.y + right * currentMovementInput.x).normalized;
+        }
 
         // 3) Determine speed (walk or sprint)
         bool isSprinting = sprintAction.action.IsPressed() && isMovementPressed;
@@ -175,13 +193,16 @@ public class PlayerController : MonoBehaviour
         theCam.fieldOfView = Mathf.Lerp(theCam.fieldOfView, targetFOV, Time.deltaTime * camZoomSpeed);
 
         // 8) Handle camera look
-        Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
-        lookInput.y = -lookInput.y;
-        rotStore = rotStore + (lookInput * lookSpeed * Time.deltaTime);
-        rotStore.y = Mathf.Clamp(rotStore.y, -90f, 90f);
-        
-        transform.rotation = Quaternion.Euler(0f, rotStore.x, 0f);
-        theCam.transform.localRotation = Quaternion.Euler(rotStore.y, 0f, 0f);
+        if (!disable2DLook)
+        {
+            Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
+            lookInput.y = -lookInput.y;
+            rotStore = rotStore + (lookInput * lookSpeed * Time.deltaTime);
+            rotStore.y = Mathf.Clamp(rotStore.y, -90f, 90f);
+            
+            transform.rotation = Quaternion.Euler(0f, rotStore.x, 0f);
+            theCam.transform.localRotation = Quaternion.Euler(rotStore.y, 0f, 0f);
+        }
     }
 
     private void OnEnable()
