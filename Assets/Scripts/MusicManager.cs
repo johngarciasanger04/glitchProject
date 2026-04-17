@@ -45,5 +45,21 @@ public class MusicManager : MonoBehaviour
             musicSource.volume = Mathf.Lerp(0, 1, percent);
             yield return null;
         }
+        
+    }
+    public void StopMusic(float fadeDuration = 0.5f)
+    {
+        StartCoroutine(FadeOutMusic(fadeDuration));
+    }
+    IEnumerator FadeOutMusic(float fadeDuration = 0.5f)
+    {
+        float percent = 0;
+        while (percent < 1)
+        {
+            percent += Time.deltaTime * (1 / fadeDuration);
+            musicSource.volume = Mathf.Lerp(1, 0, percent);
+            yield return null;
+        }
+        musicSource.Stop();
     }
 }
