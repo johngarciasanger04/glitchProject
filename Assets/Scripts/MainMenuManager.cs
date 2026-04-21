@@ -73,7 +73,7 @@ public class MainMenuManager : MonoBehaviour
         SoundsManager.Instance.PlaySound2D("ButtonClick");
         if (debugging)
             Debug.Log("Loading level: " + level1ToLoad);
-
+        MusicManager.Instance.StopMusic();
         SceneManager.LoadScene(level1ToLoad);
     }
     // Level Selector Button
@@ -156,6 +156,16 @@ public class MainMenuManager : MonoBehaviour
         SoundsManager.Instance.PlaySound2D("ButtonClick");
 
         SceneManager.LoadScene(level3ToLoad);
+    }
+    public void onLevel5Button()
+    {
+        Debug.Log("Level 5 button clicked");
+        if (debugging)
+            Debug.Log("Loading level: " + level5ToLoad);
+
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
+
+        SceneManager.LoadScene(level5ToLoad);
     }
 
     private void QuitGame()
