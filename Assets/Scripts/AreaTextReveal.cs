@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using TMPro; // Required for TextMeshPro!
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class AreaTextReveal : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class AreaTextReveal : MonoBehaviour
     public TextMeshProUGUI areaText;
 
     [Header("Settings")]
-    public string areaName = "New Area";
     public float fadeInTime = 2f;
     public float displayTime = 3f;
     public float fadeOutTime = 2f;
@@ -17,8 +17,11 @@ public class AreaTextReveal : MonoBehaviour
     {
         if (areaText != null)
         {
-            // Set the specific text for this level
-            areaText.text = areaName;
+            // Auto-detect scene name and set display text
+            string sceneName = SceneManager.GetActiveScene().name;
+            string displayName = GetDisplayName(sceneName);
+            
+            areaText.text = displayName;
             
             // Ensure the text starts completely transparent
             Color startColor = areaText.color;
@@ -27,6 +30,26 @@ public class AreaTextReveal : MonoBehaviour
 
             // Kick off the fading sequence
             StartCoroutine(RevealSequence());
+        }
+    }
+
+    string GetDisplayName(string sceneName)
+    {
+        // Map scene names to pretty display names
+        switch (sceneName)
+        {
+            case "Level 1":
+                return "Level 1: The Beginning";
+            case "Pressure plate level":
+                return "Level 2: Pressure Plates";
+            case "Maze Level":
+                return "Level 3: The Maze";
+            case "CityLevel":
+                return "Level 4: The City";
+            case "Perspective_Scene":
+                return "Level 5: Perspective Shift";
+            default:
+                return sceneName; // Fallback to scene name
         }
     }
 
@@ -41,7 +64,7 @@ public class AreaTextReveal : MonoBehaviour
             elapsedTime += Time.deltaTime;
             textColor.a = Mathf.Clamp01(elapsedTime / fadeInTime);
             areaText.color = textColor;
-            yield return null; // Wait for the next frame
+            yield return null;
         }
 
         // 2. HOLD ON SCREEN
@@ -57,7 +80,7 @@ public class AreaTextReveal : MonoBehaviour
             yield return null;
         }
 
-        // 4. CLEANUP (Turn off the text object to save performance)
+        // 4. CLEANUP
         gameObject.SetActive(false);
     }
 }

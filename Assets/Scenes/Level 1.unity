@@ -8942,7 +8942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9025104310764638815, guid: baf6118d21a95be44859a710a6de8b2e, type: 3}
       propertyPath: m_text
-      value: TESTING ROOM
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9025104310764638815, guid: baf6118d21a95be44859a710a6de8b2e, type: 3}
       propertyPath: m_fontSize
