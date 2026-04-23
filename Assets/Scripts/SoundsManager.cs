@@ -6,6 +6,7 @@ public class SoundsManager : MonoBehaviour
 
     [SerializeField] private SoundLib soundLib;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] public AudioSource loopAudioSource;
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -38,4 +39,27 @@ public class SoundsManager : MonoBehaviour
     {
         audioSource.PlayOneShot(soundLib.getClipFromName(soundName));
     }
+    public void PlayLoopingSound(string clipName)
+    {
+        AudioClip clip = soundLib.getClipFromName(clipName);
+        if (clip == null){ 
+            Debug.LogWarning("AudioClip is null.");
+            return;
+        }
+        if (loopAudioSource.clip == clip && loopAudioSource.isPlaying)
+        {
+            return; // Already playing this clip
+        }
+        loopAudioSource.clip = clip;
+        loopAudioSource.loop = true;
+        loopAudioSource.Play();
+    }
+    public void StopLoopingSound()
+    {
+        if (loopAudioSource.isPlaying)
+        {
+            loopAudioSource.Stop();
+        }
+    }
+
 }

@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     float maxJumpTime = 0.5f;
     bool isJumping = false;
 
+    bool wasMovementPressed = false;
+
     [Header("Push Settings")]
     [SerializeField] float pushStrength = 2.5f;
     [SerializeField] float maxPushMass = 200f;
@@ -117,7 +119,21 @@ public class PlayerController : MonoBehaviour
     {
         currentMovementInput = context.ReadValue<Vector2>();
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
+        
+        if (SoundsManager.Instance != null)
+        {
+            if (isMovementPressed && !wasMovementPressed)
+            {
+                SoundsManager.Instance.PlayLoopingSound("MovementPressed");
+            }
+            else if (!isMovementPressed && wasMovementPressed)
+            {
+                SoundsManager.Instance.StopLoopingSound();
+            }
+        }
+        wasMovementPressed = isMovementPressed;
     }
+    
 
     void onRun(InputAction.CallbackContext context)
     {
