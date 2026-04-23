@@ -39,15 +39,15 @@ public class AreaTextReveal : MonoBehaviour
         switch (sceneName)
         {
             case "Level 1":
-                return "Level 1: The Beginning";
+                return "Testing Grounds";
             case "Pressure plate level":
-                return "Level 2: Pressure Plates";
+                return "Pressure Plates";
             case "Maze Level":
-                return "Level 3: The Maze";
+                return "The Maze";
             case "CityLevel":
-                return "Level 4: The City";
+                return "The City";
             case "Perspective_Scene":
-                return "Level 5: Perspective Shift";
+                return "Perspective Shift";
             default:
                 return sceneName; // Fallback to scene name
         }

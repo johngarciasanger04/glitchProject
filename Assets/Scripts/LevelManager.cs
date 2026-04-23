@@ -8,13 +8,13 @@ public class LevelManager : MonoBehaviour
 
     [Header("Level Settings")]
     public int totalCollectibles = 0;
-    public string menuSceneName = "MainMenu"; // Change this to match your menu scene name
-    public float delayBeforeMenu = 2f; // Wait 2 seconds before going to menu
+    public float delayBeforeNextLevel = 2f;
 
     [Header("UI (Optional)")]
-    public GameObject levelCompleteUI; // Optional UI to show "Level Complete!"
+    public GameObject levelCompleteUI;
 
     private int collectiblesRemaining;
+    private string currentSceneName;
 
     private void Awake()
     {
@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        currentSceneName = SceneManager.GetActiveScene().name;
+        
         // Count all collectibles in the scene
         if (totalCollectibles == 0)
         {
@@ -62,29 +64,47 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("LEVEL COMPLETE!");
 
-        // Show completion UI if you have one
         if (levelCompleteUI != null)
         {
             levelCompleteUI.SetActive(true);
         }
 
-        // Unlock cursor for menu
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // Go back to menu after delay
-        StartCoroutine(ReturnToMenu());
+        StartCoroutine(LoadNextLevel());
     }
 
-    private IEnumerator ReturnToMenu()
+    private IEnumerator LoadNextLevel()
     {
-        yield return new WaitForSeconds(delayBeforeMenu);
-        SceneManager.LoadScene(menuSceneName);
+        yield return new WaitForSeconds(delayBeforeNextLevel);
+        
+        string nextScene = GetNextScene(currentSceneName);
+        SceneManager.LoadScene(nextScene);
     }
 
-    // Optional: Manual return to menu (for a button)
+    string GetNextScene(string sceneName)
+    {
+        // Map current scene to next scene
+        switch (sceneName)
+        {
+            case "Level 1":
+                return "Pressure plate level";
+            case "Pressure plate level":
+                return "Maze Level";
+            case "Maze Level":
+                return "CityLevel";
+            case "CityLevel":
+                return "Perspective_Scene";
+            case "Perspective_Scene":
+                return "MainMenu_Scene";
+            default:
+                return "MainMenu_Scene"; // Fallback
+        }
+    }
+
     public void ReturnToMenuNow()
     {
-        SceneManager.LoadScene(menuSceneName);
+        SceneManager.LoadScene("MainMenu_Scene");
     }
 }
