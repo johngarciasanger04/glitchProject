@@ -48,12 +48,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool onlyHorizontalPush = true;
     [SerializeField] float wallDamping = 0.6f;
 
-<<<<<<< HEAD
     //Pause menu
     public InputActionReference pauseAction;
 
-=======
->>>>>>> timeFreeze
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
