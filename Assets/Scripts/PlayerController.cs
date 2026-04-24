@@ -8,10 +8,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("2D Mode")]
     public bool disable2DLook = false;
-
+    
     //looking
     public InputActionReference lookAction;
-    public float moveSpeed = 2.5f;
+    public float moveSpeed = 8f;
 
     private Vector2 rotStore;
     public float lookSpeed;
@@ -160,7 +160,23 @@ public class PlayerController : MonoBehaviour
         // 2) Build horizontal movement relative to player facing
         Vector3 forward = transform.forward;
         Vector3 right = transform.right;
-        Vector3 horizontalMove = (forward * currentMovementInput.y + right * currentMovementInput.x).normalized;
+
+        // Check if in 2D mode
+        PlayerInventory inventory = GetComponent<PlayerInventory>();
+        bool in2D = (inventory != null && inventory.currentItem != null);
+
+        Vector3 horizontalMove;
+        if (in2D)
+        {
+            // In 2D: W/S = left/right, A/D = left/right (ignore one axis)
+            // Use world space directions instead of player rotation
+            horizontalMove = (Vector3.forward * -(currentMovementInput.x + currentMovementInput.y)).normalized;
+        }
+        else
+        {
+            // Normal 3D movement
+            horizontalMove = (forward * currentMovementInput.y + right * currentMovementInput.x).normalized;
+        }
 
         // 3) Determine speed (walk or sprint)
         bool isSprinting = sprintAction.action.IsPressed() && isMovementPressed;
