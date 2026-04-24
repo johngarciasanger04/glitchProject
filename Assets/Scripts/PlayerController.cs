@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
     PlayerInputActions playerInput;
     CharacterController characterController;
 
+    [Header("2D Mode")]
+    public bool disable2DLook = false;
+
     //looking
     public InputActionReference lookAction;
     public float moveSpeed = 2.5f;
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour
     Vector3 currentRunMovement;
     bool isMovementPressed;
     bool isRunPressed;
-    public float runMultiplier = 0.05f;  // Changed from 30.5f - that's way too fast!
+    public float runMultiplier = 0.05f;
 
     public InputActionReference sprintAction;
 
@@ -39,13 +42,14 @@ public class PlayerController : MonoBehaviour
     float maxJumpTime = 0.5f;
     bool isJumping = false;
 
-    bool wasMovementPressed = false;
-
     [Header("Push Settings")]
     [SerializeField] float pushStrength = 2.5f;
     [SerializeField] float maxPushMass = 200f;
     [SerializeField] bool onlyHorizontalPush = true;
     [SerializeField] float wallDamping = 0.6f;
+
+    //Pause menu
+    public InputActionReference pauseAction;
 
     void Start()
     {
@@ -119,21 +123,7 @@ public class PlayerController : MonoBehaviour
     {
         currentMovementInput = context.ReadValue<Vector2>();
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
-        
-        if (SoundsManager.Instance != null)
-        {
-            if (isMovementPressed && !wasMovementPressed)
-            {
-                SoundsManager.Instance.PlayLoopingSound("MovementPressed");
-            }
-            else if (!isMovementPressed && wasMovementPressed)
-            {
-                SoundsManager.Instance.StopLoopingSound();
-            }
-        }
-        wasMovementPressed = isMovementPressed;
     }
-    
 
     void onRun(InputAction.CallbackContext context)
     {
@@ -144,7 +134,6 @@ public class PlayerController : MonoBehaviour
     {
         if (characterController.isGrounded)
         {
-            // Small negative value to keep grounded
             if (currentMovement.y < 0)
                 currentMovement.y = groundedGravity;
             if (currentRunMovement.y < 0)
@@ -191,13 +180,16 @@ public class PlayerController : MonoBehaviour
         theCam.fieldOfView = Mathf.Lerp(theCam.fieldOfView, targetFOV, Time.deltaTime * camZoomSpeed);
 
         // 8) Handle camera look
-        Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
-        lookInput.y = -lookInput.y;
-        rotStore = rotStore + (lookInput * lookSpeed * Time.deltaTime);
-        rotStore.y = Mathf.Clamp(rotStore.y, -90f, 90f);
-        
-        transform.rotation = Quaternion.Euler(0f, rotStore.x, 0f);
-        theCam.transform.localRotation = Quaternion.Euler(rotStore.y, 0f, 0f);
+        if (!disable2DLook)
+        {
+            Vector2 lookInput = lookAction.action.ReadValue<Vector2>();
+            lookInput.y = -lookInput.y;
+            rotStore = rotStore + (lookInput * lookSpeed * Time.deltaTime);
+            rotStore.y = Mathf.Clamp(rotStore.y, -90f, 90f);
+            
+            transform.rotation = Quaternion.Euler(0f, rotStore.x, 0f);
+            theCam.transform.localRotation = Quaternion.Euler(rotStore.y, 0f, 0f);
+        }
     }
 
     private void OnEnable()
