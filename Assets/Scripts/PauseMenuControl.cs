@@ -12,7 +12,6 @@ public class PauseMenuController : MonoBehaviour
     public InputActionReference pauseAction;
 
     private Animator[] animator;
-    //private Animation[] allAnimations;
     private Rigidbody[] allRigidbodies;
     private Vector3[] savedVelocities;
     private Vector3[] savedAngularVelocities;
@@ -51,33 +50,40 @@ public class PauseMenuController : MonoBehaviour
     {
         Debug.Log("PAUSING - Physics frozen, player can still move!");
         
-        // Find all rigidbodies
-
         #pragma warning disable CS0618
         allRigidbodies = FindObjectsOfType<Rigidbody>();
+        animator = FindObjectsOfType<Animator>();
         #pragma warning restore CS0618
+        
         savedVelocities = new Vector3[allRigidbodies.Length];
         savedAngularVelocities = new Vector3[allRigidbodies.Length];
         wasKinematic = new bool[allRigidbodies.Length];
-        //allAnimations = FindObjectsOfType<Animation>();
-        animator = FindObjectsOfType<Animator>();
         
         // Freeze all physics
         for (int i = 0; i < allRigidbodies.Length; i++)
         {
-            savedVelocities[i] = allRigidbodies[i].linearVelocity;
-            savedAngularVelocities[i] = allRigidbodies[i].angularVelocity;
             wasKinematic[i] = allRigidbodies[i].isKinematic;
             
-            allRigidbodies[i].linearVelocity = Vector3.zero;
-            allRigidbodies[i].angularVelocity = Vector3.zero;
+            if (!allRigidbodies[i].isKinematic)
+            {
+                savedVelocities[i] = allRigidbodies[i].linearVelocity;
+                savedAngularVelocities[i] = allRigidbodies[i].angularVelocity;
+                allRigidbodies[i].linearVelocity = Vector3.zero;
+                allRigidbodies[i].angularVelocity = Vector3.zero;
+            }
+
+            // Make everything kinematic to freeze movement
             allRigidbodies[i].isKinematic = true;
         }
 
-        // Freeze all animations
-        for (int i = 0; i < animator.Length; i++)
+        // Freeze all animations (Safely moved outside the physics loop)
+        if (animator != null)
         {
-            animator[i].enabled = false;
+            for (int i = 0; i < animator.Length; i++)
+            {
+                if (animator[i] != null)
+                    animator[i].enabled = false;
+            }
         }
         
         if (pauseMenuUI != null)
@@ -85,7 +91,6 @@ public class PauseMenuController : MonoBehaviour
         
         isPaused = true;
         
-        // Show cursor for menu interaction
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -109,10 +114,14 @@ public class PauseMenuController : MonoBehaviour
             }
         }
 
-        //Restore paused animations
-        for (int i = 0; i < animator.Length; i++)
+        // Restore paused animations (Main branch logic)
+        if (animator != null)
         {
-            animator[i].enabled = true;
+            for (int i = 0; i < animator.Length; i++)
+            {
+                if (animator[i] != null)
+                    animator[i].enabled = true;
+            }
         }
         
         if (pauseMenuUI != null)
@@ -138,7 +147,6 @@ public class PauseMenuController : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false;
-        // Change "MainMenu" to your actual main menu scene name
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu_Scene");
     }
 }

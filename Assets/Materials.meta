@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: bf889932349c7eb4fadf00bb9b41e946
+=======
+guid: e652d8943536f5449b344b5a5a2af8b2
+>>>>>>> timeFreeze
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
