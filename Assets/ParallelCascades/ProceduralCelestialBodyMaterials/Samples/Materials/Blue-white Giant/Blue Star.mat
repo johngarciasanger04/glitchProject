@@ -63,8 +63,8 @@ Material:
     - _Scale: 4
     - _Warp_Amount: 4
     m_Colors:
-    - _Color_Q: {r: 0.122641504, g: 0.0046279775, b: 0.007347213, a: 0}
-    - _Color_R: {r: 0, g: 0, b: 0, a: 0}
-    - _Fresnel_Color: {r: 0.9198113, g: 0.06941972, b: 0.06941972, a: 0}
+    - _Color_Q: {r: 1.1283019, g: 1.4051942, b: 2, a: 0}
+    - _Color_R: {r: 2, g: 2, b: 2, a: 0}
+    - _Fresnel_Color: {r: 0.05405426, g: 0, b: 2, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
