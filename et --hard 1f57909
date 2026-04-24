@@ -1,0 +1,76 @@
+[33m22b0b75[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33m1f57909[m HEAD@{1}: reset: moving to 1f57909
+[33md5aaf34[m HEAD@{2}: commit: Force restored all TMP font assets to resolve merge corruption
+[33m3474062[m HEAD@{3}: commit: Restored MainMenu_Scene from commit 1f57909
+[33m22b0b75[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{4}: commit: sln
+[33m7c0d583[m HEAD@{5}: pull: Fast-forward
+[33m3f52138[m HEAD@{6}: checkout: moving from mainPrep to main
+[33m81d42a1[m[33m ([m[1;31morigin/mainPrep[m[33m, [m[1;32mmainPrep[m[33m)[m HEAD@{7}: pull: Fast-forward
+[33m00729ee[m HEAD@{8}: commit: added level one reveal text
+[33mf8e3bc5[m HEAD@{9}: commit: finalize merge
+[33me673245[m HEAD@{10}: merge perspective: Merge made by the 'ort' strategy.
+[33m3f52138[m HEAD@{11}: reset: moving to HEAD
+[33m3f52138[m HEAD@{12}: checkout: moving from main to mainPrep
+[33m3f52138[m HEAD@{13}: commit: Merged Perspective_Scene into main
+[33mc1e9966[m HEAD@{14}: pull: Fast-forward
+[33m5644509[m HEAD@{15}: checkout: moving from perspective to main
+[33m301c42c[m[33m ([m[1;31morigin/perspective[m[33m, [m[1;32mperspective[m[33m)[m HEAD@{16}: pull: Fast-forward
+[33m433a556[m HEAD@{17}: commit: adding sound and attempting to put pause menu perspective scene
+[33macffdf3[m HEAD@{18}: checkout: moving from main to perspective
+[33m5644509[m HEAD@{19}: pull: Fast-forward
+[33m983b8ac[m HEAD@{20}: pull: Fast-forward
+[33m44dd76c[m HEAD@{21}: checkout: moving from perspective to main
+[33macffdf3[m HEAD@{22}: commit: audio mixer
+[33m6a4f4ad[m HEAD@{23}: checkout: moving from timeFreeze to perspective
+[33m66821a5[m[33m ([m[1;31morigin/timeFreeze[m[33m, [m[1;32mtimeFreeze[m[33m)[m HEAD@{24}: pull: Fast-forward
+[33me9d5299[m HEAD@{25}: commit: trying to figure out how to get the platform to stop ghost pushing
+[33maf066bc[m HEAD@{26}: pull: Fast-forward
+[33m6397fd1[m HEAD@{27}: commit: starting to make multi plats
+[33m3e2c181[m HEAD@{28}: reset: moving to HEAD
+[33m3e2c181[m HEAD@{29}: commit: platform works and is able to carry playe, had to put rigid body on platform
+[33m5d166fa[m HEAD@{30}: checkout: moving from door-ball to timeFreeze
+[33md1c1d6d[m[33m ([m[1;32mdoor-ball[m[33m)[m HEAD@{31}: commit: Add retro computer and cyborg assets
+[33m37d271e[m HEAD@{32}: pull: Fast-forward
+[33m8fcf498[m HEAD@{33}: checkout: moving from timeFreeze to door-ball
+[33m5d166fa[m HEAD@{34}: commit: no luck
+[33ma52ec17[m HEAD@{35}: pull: Fast-forward
+[33m83d6326[m HEAD@{36}: commit: attempting ti fix platform issues, still not resolved
+[33meceb80e[m HEAD@{37}: commit (merge): rosolving conflict
+[33m6342b88[m HEAD@{38}: commit: second semester
+[33m51f1b73[m HEAD@{39}: pull: Fast-forward
+[33m5a481cf[m HEAD@{40}: commit: added cyberpunk models to scene
+[33me02c8d8[m HEAD@{41}: pull: Fast-forward
+[33m9bfb943[m HEAD@{42}: commit: done for day
+[33mda66056[m HEAD@{43}: commit: recovery process
+[33mb26431d[m HEAD@{44}: commit: recover pause menu for freeze
+[33m88d2dc4[m HEAD@{45}: commit: adding prefabs to timeFreeze
+[33m847b7de[m HEAD@{46}: checkout: moving from Level1 to timeFreeze
+[33mddf6807[m[33m ([m[1;32mLevel1[m[33m)[m HEAD@{47}: pull: Fast-forward
+[33m2901285[m HEAD@{48}: checkout: moving from timeFreeze to Level1
+[33m847b7de[m HEAD@{49}: commit: adding materials folder and scene from failed project
+[33mbdfb786[m HEAD@{50}: checkout: moving from mainMenu to timeFreeze
+[33m2f50f1b[m[33m ([m[1;31morigin/mainMenu[m[33m, [m[1;32mmainMenu[m[33m)[m HEAD@{51}: pull: Fast-forward
+[33me9f1123[m HEAD@{52}: checkout: moving from timeFreeze to mainMenu
+[33mbdfb786[m HEAD@{53}: checkout: moving from Level1 to timeFreeze
+[33m2901285[m HEAD@{54}: pull: Fast-forward
+[33me9f1123[m HEAD@{55}: checkout: moving from main to Level1
+[33m44dd76c[m HEAD@{56}: checkout: moving from door-ball to main
+[33m8fcf498[m HEAD@{57}: commit: added Quentin's files to door-ball branch
+[33me9f1123[m HEAD@{58}: checkout: moving from main to door-ball
+[33m44dd76c[m HEAD@{59}: commit: adding our documentation
+[33me9f1123[m HEAD@{60}: checkout: moving from door-ball to main
+[33me9f1123[m HEAD@{61}: checkout: moving from mainMenu to door-ball
+[33me9f1123[m HEAD@{62}: merge Level1: Fast-forward
+[33mbdfb786[m HEAD@{63}: checkout: moving from Level1 to mainMenu
+[33me9f1123[m HEAD@{64}: merge main: Fast-forward
+[33mbdfb786[m HEAD@{65}: checkout: moving from main to Level1
+[33me9f1123[m HEAD@{66}: checkout: moving from Level1 to main
+[33mbdfb786[m HEAD@{67}: checkout: moving from main to Level1
+[33me9f1123[m HEAD@{68}: commit: added files from old project to reset level 1 back to its original form
+[33mbdfb786[m HEAD@{69}: checkout: moving from timeFreeze to main
+[33mbdfb786[m HEAD@{70}: checkout: moving from main to timeFreeze
+[33mbdfb786[m HEAD@{71}: checkout: moving from mainMenu to main
+[33mbdfb786[m HEAD@{72}: checkout: moving from Level1 to mainMenu
+[33mbdfb786[m HEAD@{73}: checkout: moving from main to Level1
+[33mbdfb786[m HEAD@{74}: Branch: renamed refs/heads/master to refs/heads/main
+[33mbdfb786[m HEAD@{76}: commit (initial): commit to use github instead of Unity version control

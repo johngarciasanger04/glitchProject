@@ -180,11 +180,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-<<<<<<< HEAD
-=======
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
->>>>>>> timeFreeze
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -206,10 +201,6 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< HEAD
-=======
-  m_GlobalIlluminationMeshLod: 0
->>>>>>> timeFreeze
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -298,11 +289,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-<<<<<<< HEAD
-=======
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
->>>>>>> timeFreeze
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -324,10 +310,6 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< HEAD
-=======
-  m_GlobalIlluminationMeshLod: 0
->>>>>>> timeFreeze
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -966,12 +948,7 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9adb1f542a93ae489bacfeae21e8394, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 967f61bb1e3e28645a39e0cb647cc79e, type: 2}
-<<<<<<< HEAD
   m_fontSharedMaterials: []
-=======
-  m_fontSharedMaterials:
-  - {fileID: 2100000, guid: 967f61bb1e3e28645a39e0cb647cc79e, type: 2}
->>>>>>> timeFreeze
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1061,11 +1038,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-<<<<<<< HEAD
-=======
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
->>>>>>> timeFreeze
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -1087,10 +1059,6 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< HEAD
-=======
-  m_GlobalIlluminationMeshLod: 0
->>>>>>> timeFreeze
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -1673,12 +1641,7 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c9adb1f542a93ae489bacfeae21e8394, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 8d176c01131de8f46ad61094e29d79b2, type: 2}
-<<<<<<< HEAD
   m_fontSharedMaterials: []
-=======
-  m_fontSharedMaterials:
-  - {fileID: 2100000, guid: 8d176c01131de8f46ad61094e29d79b2, type: 2}
->>>>>>> timeFreeze
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1768,11 +1731,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-<<<<<<< HEAD
-=======
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
->>>>>>> timeFreeze
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -1794,10 +1752,6 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< HEAD
-=======
-  m_GlobalIlluminationMeshLod: 0
->>>>>>> timeFreeze
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -1929,12 +1883,7 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 2ddca8f46aa0838419d568affb0ca6b4, type: 2}
-<<<<<<< HEAD
   m_fontSharedMaterials: []
-=======
-  m_fontSharedMaterials:
-  - {fileID: 2100000, guid: 2ddca8f46aa0838419d568affb0ca6b4, type: 2}
->>>>>>> timeFreeze
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -2024,11 +1973,6 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-<<<<<<< HEAD
-=======
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
->>>>>>> timeFreeze
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -2050,10 +1994,6 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< HEAD
-=======
-  m_GlobalIlluminationMeshLod: 0
->>>>>>> timeFreeze
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
