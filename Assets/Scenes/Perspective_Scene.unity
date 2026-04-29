@@ -1244,10 +1244,10 @@ MonoBehaviour:
   musicTracks:
   - trackName: MainMenuTheme
     clip: {fileID: 8300000, guid: 7fcde869bff31804e97bf67136d5166e, type: 3}
-  - trackName: Level1Theme
-    clip: {fileID: 8300000, guid: 6e285f5cb19c82d4ebcca772558b96fc, type: 3}
-  - trackName: Butterflow
-    clip: {fileID: 8300000, guid: eadd10e65fbbd0b408f6b6a749411d85, type: 3}
+  - trackName: ambient3D
+    clip: {fileID: 8300000, guid: 74a44e2e332003c41b22bb7ace508384, type: 3}
+  - trackName: ambient2D
+    clip: {fileID: 8300000, guid: bbfeae6aaba13bb4388070eb3f1c3638, type: 3}
 --- !u!114 &238036914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,6 +1282,9 @@ MonoBehaviour:
   - groupID: MovementPressed
     clips:
     - {fileID: 8300000, guid: 314849af28121b94daa2955bdb2f2e5b, type: 3}
+  - groupID: pickupSound
+    clips:
+    - {fileID: 8300000, guid: 0e251656d17838346bab188de8379963, type: 3}
 --- !u!4 &238036916
 Transform:
   m_ObjectHideFlags: 0
@@ -5418,7 +5421,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
