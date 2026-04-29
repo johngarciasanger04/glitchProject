@@ -509,12 +509,11 @@ MonoBehaviour:
   camZoomSpeed: 4
   runMultiplier: 2
   sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  maxJumpHeight: 1
-  maxJumpTime: 0.5
   pushStrength: 2.5
   maxPushMass: 200
   onlyHorizontalPush: 1
   wallDamping: 0.6
+  pauseAction: {fileID: -7925777196109391460, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
 --- !u!143 &83703588
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2432,7 +2431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
   pauseMenuUI: {fileID: 2063500609}
-  pauseAction: {fileID: -8058409656849746523, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  pauseAction: {fileID: -7925777196109391460, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
 --- !u!4 &925560799
 Transform:
   m_ObjectHideFlags: 0
