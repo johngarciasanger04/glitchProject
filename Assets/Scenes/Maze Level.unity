@@ -4415,7 +4415,7 @@ GameObject:
   - component: {fileID: 925682883}
   - component: {fileID: 925682882}
   m_Layer: 0
-  m_Name: Pad
+  m_Name: Teleport Pad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6676,7 +6676,7 @@ GameObject:
   - component: {fileID: 1251964720}
   - component: {fileID: 1251964719}
   m_Layer: 0
-  m_Name: Pad (1)
+  m_Name: Trap Pad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11843,7 +11843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8411119957921037936, guid: 41b5413f04595214b82ab48b048cf4d9, type: 3}
       propertyPath: m_Name
-      value: Pad
+      value: End Pad
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

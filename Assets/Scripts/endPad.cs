@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class endPad : MonoBehaviour
 {
+    // for storing the name of the current scene
     string sceneName = "";
     
     void Start() 
@@ -20,6 +21,7 @@ public class endPad : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
+            // check the name of the current scene and load the next one accordingly
             if (sceneName == "Level 1")
             {
                 SceneManager.LoadScene("Pressure plate level");
@@ -37,6 +39,10 @@ public class endPad : MonoBehaviour
                 SceneManager.LoadScene("Perspective_Scene");
             }
             else if (sceneName == "Perspective_Scene")
+            {
+                SceneManager.LoadScene("InfiniteJumpLevel");
+            }
+            else if (sceneName == "InfiniteJumpLevel")
             {
                 SceneManager.LoadScene("MainMenu_Scene");
             }
