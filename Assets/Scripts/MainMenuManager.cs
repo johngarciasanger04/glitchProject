@@ -39,7 +39,7 @@ public class MainMenuManager : MonoBehaviour
         levelsUI.SetActive(false);
         settingsUI.SetActive(false);
         creditsUI.SetActive(false);
-        MusicManager.Instance.PlayMusic("MainMenuTheme");
+        //MusicManager.Instance.PlayMusic("MainMenuTheme");
 
     }
 
