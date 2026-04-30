@@ -39,7 +39,7 @@ public class AreaText : MonoBehaviour
         switch (sceneName)
         {
             case "Level 1":
-                return "Testing Grounds";
+                return "Level 1: The Beginning";
             case "Pressure plate level":
                 return "Pressure Plates";
             case "Maze Level":
@@ -48,6 +48,8 @@ public class AreaText : MonoBehaviour
                 return "The City";
             case "Perspective_Scene":
                 return "Perspective Shift";
+            case "InfiniteJumpLevel":
+                return "Infinite Jump";
             default:
                 return sceneName; // Fallback to scene name
         }

@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
   pauseMenuUI: {fileID: 2007465824}
-  pauseAction: {fileID: -8058409656849746523, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
+  pauseAction: {fileID: -7925777196109391460, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
 --- !u!4 &37171969
 Transform:
   m_ObjectHideFlags: 0
