@@ -24,26 +24,32 @@ public class endPad : MonoBehaviour
             // check the name of the current scene and load the next one accordingly
             if (sceneName == "Level 1")
             {
+                MusicManager.Instance.StopMusic();
                 SceneManager.LoadScene("Pressure plate level");
             }
             else if (sceneName == "Pressure plate level")
             {
+                MusicManager.Instance.StopMusic();
                 SceneManager.LoadScene("Maze Level");
             }
             else if (sceneName == "Maze Level")
             {
+                MusicManager.Instance.StopMusic();
                 SceneManager.LoadScene("CityLevel");
             }
             else if (sceneName == "CityLevel")
             {
+                MusicManager.Instance.StopMusic();
                 SceneManager.LoadScene("Perspective_Scene");
             }
             else if (sceneName == "Perspective_Scene")
             {
+                MusicManager.Instance.StopMusic();
                 SceneManager.LoadScene("InfiniteJumpLevel");
             }
             else if (sceneName == "InfiniteJumpLevel")
             {
+                MusicManager.Instance.StopMusic();
                 SceneManager.LoadScene("MainMenu_Scene");
             }
         }
