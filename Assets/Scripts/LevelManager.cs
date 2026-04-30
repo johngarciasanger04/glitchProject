@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     [Header("Level Settings")]
     public int totalCollectibles = 0;
     public string menuSceneName = "MainMenu"; // Change this to match your menu scene name
+    public string nextLevelSceneName = "Perspective_Scene"; // Change this to match your next level scene name
     public float delayBeforeMenu = 2f; // Wait 2 seconds before going to menu
 
     [Header("UI (Optional)")]
@@ -73,13 +74,13 @@ public class LevelManager : MonoBehaviour
         Cursor.visible = true;
 
         // Go back to menu after delay
-        StartCoroutine(ReturnToMenu());
+        StartCoroutine(loadNextLevel());
     }
 
-    private IEnumerator ReturnToMenu()
+    private IEnumerator loadNextLevel()
     {
         yield return new WaitForSeconds(delayBeforeMenu);
-        SceneManager.LoadScene(menuSceneName);
+        SceneManager.LoadScene(nextLevelSceneName);
     }
 
     // Optional: Manual return to menu (for a button)
