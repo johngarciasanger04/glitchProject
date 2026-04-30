@@ -14,6 +14,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private string level3ToLoad;
     [SerializeField] private string level4ToLoad;
     [SerializeField] private string level5ToLoad;
+    [SerializeField] private string level6ToLoad;
     [SerializeField] private bool debugging = false;
     [SerializeField] GameObject mainMenuUI;
     [SerializeField] GameObject levelsUI;
@@ -135,6 +136,7 @@ public class MainMenuManager : MonoBehaviour
             Debug.Log("Loading level: " + level1ToLoad);
 
         SoundsManager.Instance.PlaySound2D("ButtonClick");
+        MusicManager.Instance.StopMusic();
         SceneManager.LoadScene(level1ToLoad);
         
     }
@@ -145,6 +147,7 @@ public class MainMenuManager : MonoBehaviour
             Debug.Log("Loading level: " + level2ToLoad);
 
         SoundsManager.Instance.PlaySound2D("ButtonClick");
+        MusicManager.Instance.StopMusic();
         SceneManager.LoadScene(level2ToLoad);
     }
     public void OnLevel3Button()
@@ -154,8 +157,18 @@ public class MainMenuManager : MonoBehaviour
             Debug.Log("Loading level: " + level3ToLoad);
 
         SoundsManager.Instance.PlaySound2D("ButtonClick");
-
+        MusicManager.Instance.StopMusic();
         SceneManager.LoadScene(level3ToLoad);
+    }
+    public void OnLevel4Button()
+    {
+        Debug.Log("Level 4 button clicked");
+        if (debugging)
+            Debug.Log("Loading level: " + level4ToLoad);
+
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
+        MusicManager.Instance.StopMusic();
+        SceneManager.LoadScene(level4ToLoad);
     }
     public void onLevel5Button()
     {
@@ -164,8 +177,18 @@ public class MainMenuManager : MonoBehaviour
             Debug.Log("Loading level: " + level5ToLoad);
 
         SoundsManager.Instance.PlaySound2D("ButtonClick");
-
+        MusicManager.Instance.StopMusic();
         SceneManager.LoadScene(level5ToLoad);
+    }
+    public void onLevel6Button()
+    {
+        Debug.Log("Level 6 button clicked");
+        if (debugging)
+            Debug.Log("Loading level: " + level6ToLoad);
+
+        SoundsManager.Instance.PlaySound2D("ButtonClick");
+        MusicManager.Instance.StopMusic();
+        SceneManager.LoadScene(level6ToLoad);
     }
 
     private void QuitGame()

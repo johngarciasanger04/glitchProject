@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu_Scene.unity
     guid: b7ba404abd334fa46b97699e7545aad8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -21,11 +21,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Maze Level.unity
     guid: fbf93b60845047041a2a12e05da34ca4
   - enabled: 1
-    path: Assets/Scenes/Testing zone.unity
-    guid: e3afd89606022d841b064b93ca2dd7e6
+    path: Assets/Scenes/CityLevel.unity
+    guid: ff4c77afee1cecd46802f1c079d6aa22
+  - enabled: 1
+    path: Assets/Scenes/Perspective_Scene.unity
+    guid: 4bfd145f3ea4a514f8be4dabdf2845d7
   - enabled: 1
     path: Assets/Scenes/InfiniteJumpLevel.unity
     guid: 6b43bf2f110d1f044b0918cdf1c34e7b
+  - enabled: 1
+    path: Assets/Scenes/Testing zone.unity
+    guid: e3afd89606022d841b064b93ca2dd7e6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
