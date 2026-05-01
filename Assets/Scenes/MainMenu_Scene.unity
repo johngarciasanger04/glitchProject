@@ -2848,6 +2848,12 @@ MonoBehaviour:
   - groupID: MovementPressed
     clips:
     - {fileID: 8300000, guid: 314849af28121b94daa2955bdb2f2e5b, type: 3}
+  - groupID: pickupSound
+    clips:
+    - {fileID: 8300000, guid: 0e251656d17838346bab188de8379963, type: 3}
+  - groupID: collectSound
+    clips:
+    - {fileID: 8300000, guid: 0e251656d17838346bab188de8379963, type: 3}
 --- !u!4 &715628575
 Transform:
   m_ObjectHideFlags: 0
@@ -2923,8 +2929,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: eadd10e65fbbd0b408f6b6a749411d85, type: 3}
   - trackName: CityLevelTheme
     clip: {fileID: 8300000, guid: fb4def6dfdf9da34d9e6855e7e8daee0, type: 3}
-  - trackName: Music
-    clip: {fileID: 0}
 --- !u!1 &724694473
 GameObject:
   m_ObjectHideFlags: 0

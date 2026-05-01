@@ -7,17 +7,16 @@ public class Collectible : MonoBehaviour
     public bool rotateInPlace = true;
     public float rotationSpeed = 90f;
     
-    [Header("Audio (Optional)")]
-    public AudioClip collectSound;
+    [Header("Audio")]
+    public string soundName = "collectSound"; // Name in SoundLib
     
     [Header("Effects (Optional)")]
-    public GameObject collectEffectPrefab; // Particle effect or something
+    public GameObject collectEffectPrefab;
     
-    private bool collected = false; // Prevent double collection
+    private bool collected = false;
     
     private void Update()
     {
-        // Optional: rotate the collectible to make it obvious
         if (rotateInPlace)
         {
             transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
@@ -26,10 +25,8 @@ public class Collectible : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        // Prevent collecting twice
         if (collected) return;
         
-        // Check if player touched us
         if (other.CompareTag("Player"))
         {
             Collect(other.gameObject);
@@ -38,35 +35,30 @@ public class Collectible : MonoBehaviour
     
     private void Collect(GameObject player)
     {
-        // Mark as collected immediately
         collected = true;
         
-        // Add points to player
         PlayerStats stats = player.GetComponent<PlayerStats>();
         if (stats != null)
         {
             stats.AddPoints(pointValue);
         }
         
-        // Notify level manager
         if (LevelManager.instance != null)
         {
             LevelManager.instance.CollectibleCollected();
         }
         
-        // Play sound if we have one
-        if (collectSound != null)
+        // Play sound through SoundsManager
+        if (SoundsManager.Instance != null)
         {
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            SoundsManager.Instance.PlaySound2D(soundName);
         }
         
-        // Spawn effect if we have one
         if (collectEffectPrefab != null)
         {
             Instantiate(collectEffectPrefab, transform.position, Quaternion.identity);
         }
         
-        // Destroy the collectible
         Destroy(gameObject);
     }
 }
