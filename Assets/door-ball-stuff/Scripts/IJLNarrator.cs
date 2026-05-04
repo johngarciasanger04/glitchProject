@@ -43,6 +43,10 @@ public class IJLNarrator : MonoBehaviour
 
     private string[] checkpointC =
     {
+        "Wow, you made it! I uh...didn't expect you'd do it like that...",
+        "All those balls...were they not balls? Whatever they were, it was wild.",
+        "Good thing I made this checkpoint! I totally didn't just create it right now for you.",
+        "Anyways, this next part is super easy! Even a baby could do it, probably..."
 
     };
 
@@ -51,6 +55,15 @@ public class IJLNarrator : MonoBehaviour
         "You did it! Good job, buddy!",
         "Me and you make a great team...",
         "We BOTH earned this victory."
+    };
+
+    private string[] easterEgg =
+    {
+        "Oh...how did you end up here?",
+        "You're asking me? Come on, don't ask me. I don't know.",
+        "Okay, so maybe the object is a bit longer than intended, but we didn't have a lot of time.",
+        "How are you going to get back? Uh...good question. You still have the box right?",
+        "Well, how about we give you an ending anyways. I say you worked hard enough!"
     };
     private string[] currentLines;
     private int currentIndex = 0;
@@ -174,10 +187,24 @@ public class IJLNarrator : MonoBehaviour
         currentIndex = 0;
         ShowLine(currentIndex);
     }
+    public void checkpointBA()
+    {
+        currentLines = checkpointC;
+        currentIndex = 0;
+        ShowLine(currentIndex);
+    }
+
     public void beforeFinishText()
     {
         currentLines = beforeFinish;
         currentIndex = 0;
         ShowLine(currentIndex);
     }
+    public void easterEgg1()
+    {
+        currentLines = easterEgg;
+        currentIndex = 0;
+        ShowLine(currentIndex);
+    }
+
 }
