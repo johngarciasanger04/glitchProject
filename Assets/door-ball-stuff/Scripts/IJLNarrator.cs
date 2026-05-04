@@ -162,6 +162,8 @@ public class IJLNarrator : MonoBehaviour
         NextLine();
         if (easterEggTrigger && currentIndex >= currentLines.Length )
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("MainMenu_Scene");
         }
     }
@@ -175,6 +177,8 @@ public class IJLNarrator : MonoBehaviour
         }
         else if (endingTrigger && index >= currentLines.Length)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("Credits");
         }
         else
