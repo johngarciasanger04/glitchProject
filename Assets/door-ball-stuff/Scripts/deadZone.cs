@@ -11,14 +11,12 @@ public class deadZone : MonoBehaviour
         if (other.gameObject == player)
         {
             player.transform.position = recoverPoint.position;
-            player.transform.rotation = recoverPoint.rotation;
         }
-        if (other.gameObject == box)
+        else if (other.gameObject == box)
         {
             box.transform.position = recoverPoint.position;
-            box.transform.rotation = recoverPoint.rotation;
         }
-        if (other.gameObject != player && box)
+        else if (other.gameObject != player || box)
         {
             Destroy(other.gameObject);
         }

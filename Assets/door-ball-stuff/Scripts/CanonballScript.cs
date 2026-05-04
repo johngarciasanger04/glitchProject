@@ -3,6 +3,7 @@ using UnityEngine;
 public class CannonballScript : MonoBehaviour
 {
     public float pushForce = 10f;
+    public GameObject box; 
 
     void OnCollisionEnter(Collision collision)
     {
@@ -15,5 +16,14 @@ public class CannonballScript : MonoBehaviour
                 push.AddImpact(dir, pushForce);
             }
         }
+        else if (collision.gameObject == box)
+            {
+                Destroy(collision.gameObject);
+            }
+        else
+            {
+                Destroy(gameObject);
+            }
+     
     }
 }

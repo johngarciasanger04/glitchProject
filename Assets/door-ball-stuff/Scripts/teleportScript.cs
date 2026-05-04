@@ -9,8 +9,8 @@ public class TeleportScript : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            player.transform.position = teleEndPoint.position;
-            player.transform.rotation = teleEndPoint.rotation;
+            player.transform.rotation = teleEndPoint.rotation; // teleports player to teleEndPoint
+            player.transform.position = teleEndPoint.position; 
         }
     }
 }

@@ -7,7 +7,11 @@ public class TextTrigger : MonoBehaviour
 
     bool firstJumpA = false;
     bool checkpointPA = false;
-    bool beforeFinish = false; 
+    bool checkpointBA = false;
+    bool beforeFinish = false;
+    bool easterEgg1 = false;
+    bool ending = false; 
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -23,11 +27,31 @@ public class TextTrigger : MonoBehaviour
                 checkpointPA = true;
             }
 
+
+            if (eventName == "checkpointC" && checkpointBA == false)
+            {
+                narrator.checkpointBA();
+                checkpointBA = true;
+            }
+
+            if (eventName == "easterEgg" && easterEgg1 == false)
+            {
+                narrator.easterEgg1();
+                easterEgg1 = true;
+            }
+
             if (eventName == "beforeFinish" && beforeFinish == false)
             {
                 narrator.beforeFinishText();
                 beforeFinish = true;
             }
+            
+            if (eventName == "ending" && ending == false)
+            {
+                narrator.endingText();
+                beforeFinish = true;
+            }
+
         }
     }
 }
