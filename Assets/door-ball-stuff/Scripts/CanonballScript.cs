@@ -16,16 +16,14 @@ public class CannonballScript : MonoBehaviour
                 push.AddImpact(dir, pushForce);
             }
         }
-        else
-        {
-            if (collision.gameObject == box)
+        else if (collision.gameObject == box)
             {
                 Destroy(collision.gameObject);
             }
-            else
+        else
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
-        }
+     
     }
 }

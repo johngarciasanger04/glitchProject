@@ -10,6 +10,7 @@ public class TextTrigger : MonoBehaviour
     bool checkpointBA = false;
     bool beforeFinish = false;
     bool easterEgg1 = false;
+    bool ending = false; 
 
     void OnTriggerEnter(Collider other)
     {
@@ -44,6 +45,13 @@ public class TextTrigger : MonoBehaviour
                 narrator.beforeFinishText();
                 beforeFinish = true;
             }
+            
+            if (eventName == "ending" && ending == false)
+            {
+                narrator.endingText();
+                beforeFinish = true;
+            }
+
         }
     }
 }
