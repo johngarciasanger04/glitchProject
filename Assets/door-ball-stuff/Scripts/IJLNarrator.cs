@@ -175,7 +175,7 @@ public class IJLNarrator : MonoBehaviour
         }
         else if (endingTrigger && index >= currentLines.Length)
         {
-            SceneManager.LoadScene("MainMenu_Scene");
+            SceneManager.LoadScene("Credits");
         }
         else
         {
