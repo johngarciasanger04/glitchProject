@@ -140,6 +140,8 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(level1ToLoad);
         
     }
+
+
     public void OnLevel2Button()
     {
         Debug.Log("Level 2 button clicked");

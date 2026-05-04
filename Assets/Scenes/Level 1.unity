@@ -7356,7 +7356,7 @@ PrefabInstance:
     - target: {fileID: 3677340822668920070, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
       propertyPath: pauseAction
       value: 
-      objectReference: {fileID: -1239591195202747504, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+      objectReference: {fileID: -7925777196109391460, guid: d9952b87b236c4a4981e23d804b495aa, type: 3}
     - target: {fileID: 3677340822668920070, guid: 107830bc3771ea7499a161a80ac20ea4, type: 3}
       propertyPath: runMultiplier
       value: 1.5

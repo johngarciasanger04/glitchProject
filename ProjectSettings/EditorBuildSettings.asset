@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InfiniteJumpLevel.unity
     guid: 6b43bf2f110d1f044b0918cdf1c34e7b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing zone.unity
     guid: e3afd89606022d841b064b93ca2dd7e6
   m_configObjects:
