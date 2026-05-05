@@ -2929,6 +2929,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: eadd10e65fbbd0b408f6b6a749411d85, type: 3}
   - trackName: CityLevelTheme
     clip: {fileID: 8300000, guid: fb4def6dfdf9da34d9e6855e7e8daee0, type: 3}
+  - trackName: InfiniteJumpTheme
+    clip: {fileID: 8300000, guid: c0170f78da1139444ae6e8c98d8cbb93, type: 3}
 --- !u!1 &724694473
 GameObject:
   m_ObjectHideFlags: 0
