@@ -8429,7 +8429,7 @@ GameObject:
   - component: {fileID: 652619215}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8538,9 +8538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c362af56cfa0eb34291b857f6d8869db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::deadZone
-  recoverPoint: {fileID: 0}
-  player: {fileID: 0}
-  box: {fileID: 0}
+  recoverPoint: {fileID: 120771004}
+  player: {fileID: 55378794}
+  box: {fileID: 1255708913}
 --- !u!1 &654693140
 GameObject:
   m_ObjectHideFlags: 0

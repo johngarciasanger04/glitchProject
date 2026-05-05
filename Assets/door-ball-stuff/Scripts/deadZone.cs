@@ -10,11 +10,25 @@ public class deadZone : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            player.transform.position = recoverPoint.position;
+            if (CompareTag("Wall"))
+            {
+                return;
+            }
+            else
+            {
+                player.transform.position = recoverPoint.position;
+            }
         }
         else if (other.gameObject == box)
         {
-            box.transform.position = recoverPoint.position;
+            if (CompareTag("Wall"))
+            {
+                return;
+            }
+            else
+            {
+                box.transform.position = recoverPoint.position;
+            }
         }
         else if (other.gameObject != player || box)
         {
